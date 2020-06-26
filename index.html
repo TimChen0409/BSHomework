@@ -7,11 +7,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
     <title>成功國小課表</title>
     <style>
-        body,
-        html {
+        * {
             margin: 0;
             padding: 0;
-            width: 100%;
         }
 
         .content {
@@ -19,11 +17,11 @@
             justify-content: space-around;
         }
 
-        .table{
-            margin: 10px;
+        .column {
+            margin: 15px;
         }
 
-        footer{
+        footer {
             background-color: #e9f174;
             text-align: center;
             padding: 10px;
@@ -33,14 +31,14 @@
 
 <body>
     <div class="content">
-        <div>
+        <div class="column">
             <h3>原稿</h3>
-            <img src="pic/bb.png" width="550px">
+            <img src="pic/a.png" width="550px">
             <br>
         </div>
-        <div>
+        <div class="column">
             <h3>Table手刻版</h3>
-            <table border="1" width="700" class="table">
+            <table border="1" width="650" height="750" class="table">
                 <thead>
                     <tr>
                         <th colspan="13">宜蘭縣成功國民小學九十八學年度日課表</th>
@@ -256,7 +254,7 @@
                             <font color="red">鄉土</font>
                         </td>
                         <td rowspan="2">綜合</td>
-                        <td rowspan="2">國語<br><b>(圖書館)</b></td>
+                        <td rowspan="2">國語<br>(圖書館)</td>
                         <td colspan="4">五年四班</td>
                     </tr>
                     <tr>
