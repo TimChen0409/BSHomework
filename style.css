@@ -25,7 +25,7 @@ td {
     border: 1px solid black;
 }
 
-.title{
+.title {
     border: 0;
     letter-spacing: 10px;
     font-size: 20px;
@@ -93,7 +93,11 @@ td {
 }
 
 footer {
-    background-color: #e9f174;
+    background-color: black;
+    color: white;
     text-align: center;
     padding: 10px;
+}
+footer a {
+    color: white;
 }
