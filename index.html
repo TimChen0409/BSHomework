@@ -5,28 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>成功國小課表</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        .content {
-            display: flex;
-            justify-content: space-around;
-        }
-
-        .column {
-            margin: 15px;
-        }
-
-        footer {
-            background-color: #e9f174;
-            text-align: center;
-            padding: 10px;
-        }
-    </style>
 </head>
 
 <body>
@@ -38,7 +18,7 @@
         </div>
         <div class="column">
             <h3>Table手刻版</h3>
-            <table border="1" width="650" height="750" class="table">
+            <table width="650" height="750" class="table">
                 <thead>
                     <tr>
                         <th colspan="13">宜蘭縣成功國民小學九十八學年度日課表</th>
@@ -47,13 +27,19 @@
                 <tbody align="center">
                     <tr>
                         <td>時<br>段</td>
-                        <td colspan="3">時間/科別/星期</td>
+                        <td colspan="3" class="type">
+                            <span class="time">時　間</span>
+                            <div class="line1"></div>
+                            <span class="subject">科<br>　　　別</span>
+                            <div class="line2"></div>
+                            <span class="week">星期</span>
+                        </td>
                         <td>一</td>
                         <td>二</td>
                         <td>三</td>
                         <td>四</td>
                         <td>五</td>
-                        <td colspan="4">每周授課分鐘數及授課老師</td>
+                        <td colspan="4">每週授課分鐘數及授課老師</td>
                     </tr>
                     <tr>
                         <td rowspan="14">上<br><br><br>午</td>
@@ -69,7 +55,7 @@
                         <td rowspan="4"></td>
                         <td rowspan="2">20</td>
                         <td rowspan="2">8:00<br>8:20</td>
-                        <td rowspan="2" colspan="5">晨光時間<br>(兒童朝會)</td>
+                        <td rowspan="2" colspan="5">晨光時間<br><span class="small-font">(兒童朝會)</span></td>
                         <td rowspan="4">語文</td>
                         <td rowspan="2">國語</td>
                         <td rowspan="2">240</td>
@@ -98,9 +84,7 @@
                         <td rowspan="2">8:40<br>9:20</td>
                         <td rowspan="2">數學</td>
                         <td rowspan="2">國語</td>
-                        <td rowspan="2">
-                            <font color="red">社會</font>
-                        </td>
+                        <td rowspan="2" class="red">社會</td>
                         <td rowspan="2">數學</td>
                         <td rowspan="2">數學</td>
                         <td colspan="2">數學</td>
@@ -119,12 +103,8 @@
                         <td>國語</td>
                         <td>數學</td>
                         <td>國語</td>
-                        <td>
-                            <font color="red">體育</font>
-                        </td>
-                        <td>
-                            <font color="red">英語</font>
-                        </td>
+                        <td class="red">體育</td>
+                        <td class="red">英語</td>
                         <td colspan="2">自然與<br>生活科技</td>
                         <td>120</td>
                         <td>黃慶恩</td>
@@ -137,16 +117,10 @@
                         <td rowspan="2">40</td>
                         <td rowspan="2">10:30<br>11:10</td>
                         <td rowspan="2">國語</td>
-                        <td rowspan="2">
-                            <font color="red">自然</font>
-                        </td>
-                        <td rowspan="2">
-                            <font color="red">音樂</font>
-                        </td>
-                        <td rowspan="2">
-                            <font color="red">社會</font>
-                        </td>
-                        <td rowspan="2">社會<br>(電腦)</td>
+                        <td rowspan="2" class="red">自然</td>
+                        <td rowspan="2" class="red">音樂</td>
+                        <td rowspan="2" class="red">社會</td>
+                        <td rowspan="2">社會<br><span class="small-font">(電腦)</span></td>
                         <td rowspan="2">藝術<br>與<br>人文</td>
                         <td>音樂</td>
                         <td>40</td>
@@ -161,17 +135,11 @@
                         <td rowspan="2">4</td>
                         <td rowspan="2">40</td>
                         <td rowspan="2">11:20<br>12:00</td>
-                        <td rowspan="2">
-                            <font color="red">健康</font>
-                        </td>
-                        <td rowspan="2">
-                            <font color="red">自然</font>
-                        </td>
-                        <td rowspan="2">彈性<br>(數學)</td>
+                        <td rowspan="2" class="red">健康</td>
+                        <td rowspan="2" class="red">自然</td>
+                        <td rowspan="2">彈性<br><span class="small-font">(數學)</span></td>
                         <td rowspan="2">彈性</td>
-                        <td rowspan="2">
-                            <font color="red">自然</font>
-                        </td>
+                        <td rowspan="2" class="red">自然</td>
                         <td rowspan="2">健康<br>與<br>體育</td>
                         <td>健康</td>
                         <td>40</td>
@@ -183,7 +151,7 @@
                         <td>潘文欽</td>
                     </tr>
                     <tr>
-                        <td rowspan="13">下<br><br><br>午</td>
+                        <td rowspan="12">下<br><br><br>午</td>
                         <td rowspan="4"></td>
                         <td rowspan="4">80</td>
                         <td rowspan="2">12:00<br>12:40</td>
@@ -202,11 +170,9 @@
                         <td rowspan="2">5</td>
                         <td rowspan="2">40</td>
                         <td rowspan="2">13:30<br>14:10</td>
-                        <td rowspan="2">
-                            <font color="red">美勞</font>
-                        </td>
+                        <td rowspan="2" class="red">美勞</td>
                         <td rowspan="2">國語</td>
-                        <td rowspan="7">教<br>師<br>進<br>修<br>時<br>間</td>
+                        <td rowspan="7" class="small-font">教<br>師<br>進<br>修<br>時<br>間</td>
                         <td rowspan="2">綜合</td>
                         <td rowspan="2">國語</td>
                     </tr>
@@ -220,16 +186,10 @@
                         <td rowspan="2">6</td>
                         <td rowspan="2">40</td>
                         <td rowspan="2">14:20<br>15:00</td>
-                        <td rowspan="2">
-                            <font color="red">美勞</font>
-                        </td>
-                        <td rowspan="2">
-                            <font color="red">英語</font>
-                        </td>
+                        <td rowspan="2" class="red">美勞</td>
+                        <td rowspan="2" class="red">英語</td>
                         <td rowspan="2">綜合</td>
-                        <td rowspan="2">
-                            <font color="red">體育</font>
-                        </td>
+                        <td rowspan="2" class="red">體育</td>
                     </tr>
                     <tr>
                         <td>英語</td>
@@ -250,15 +210,13 @@
                         <td rowspan="2">40</td>
                         <td rowspan="2">15:20<br>16:00</td>
                         <td rowspan="2">彈性</td>
-                        <td rowspan="2">
-                            <font color="red">鄉土</font>
-                        </td>
+                        <td rowspan="2" class="red">鄉土</td>
                         <td rowspan="2">綜合</td>
-                        <td rowspan="2">國語<br>(圖書館)</td>
-                        <td colspan="4">五年四班</td>
+                        <td rowspan="2">國語<br><span class="too-small-font">(圖書館)</span></td>
+                        <td colspan="4">五　年　四　班</td>
                     </tr>
                     <tr>
-                        <td colspan="4">級任老師</td>
+                        <td colspan="4">級　任　老　師</td>
                     </tr>
                     <tr>
                         <td></td>
