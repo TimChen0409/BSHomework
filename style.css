@@ -9,18 +9,26 @@
 }
 
 .column {
-    margin: 15px;
+    margin: 5px;
 }
 
 table {
     border-collapse: collapse;
     line-height: 22px;
     letter-spacing: 1px;
+    font-family: DFKai-sb;
+    margin-top: 15px;
 }
 
 th,
 td {
     border: 1px solid black;
+}
+
+.title{
+    border: 0;
+    letter-spacing: 10px;
+    font-size: 20px;
 }
 
 .type {
@@ -76,10 +84,12 @@ td {
 
 .small-font {
     font-size: 14px;
+    letter-spacing: 0;
 }
 
 .too-small-font {
     font-size: 11px;
+    letter-spacing: 0;
 }
 
 footer {
