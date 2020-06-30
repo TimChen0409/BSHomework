@@ -637,18 +637,22 @@
 
 .footer .social .twitter {
     background-color: #00aeef;
+    cursor: pointer;
 }
 
 .footer .social .facebook {
     background-color: #547cd5;
+    cursor: pointer;
 }
 
 .footer .social .pinterest {
     background-color: #cc3300;
+    cursor: pointer;
 }
 
 .footer .social .linkedin {
     background-color: #0075b6;
+    cursor: pointer;
 }
 
 .footer .logo .title {
