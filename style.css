@@ -65,12 +65,12 @@ td {
 }
 
 .line1 {
-    width: 136px;
+    width: 133px;
     height: 1px;
     background-color: black;
     position: absolute;
     bottom: 20px;
-    right: -5px;
+    right: -6px;
     transform: rotate(19deg);
 }
 
