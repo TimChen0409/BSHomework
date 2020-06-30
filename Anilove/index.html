@@ -179,10 +179,10 @@
                 <div class="item pic"><img src="img/img15.jpg" alt=""></div>
                 <div class="item pic"><img src="img/img14.jpg" alt=""></div>
                 <div class="item pic"><img src="img/img13.jpg" alt=""></div>
-                <div class="item num">1000</div>
-                <div class="item num">20</div>
-                <div class="item num">100</div>
-                <div class="item num">1200</div>
+                <div id="num1" class="item num"></div>
+                <div id="num2" class="item num"></div>
+                <div id="num3" class="item num"></div>
+                <div id="num4" class="item num"></div>
                 <div class="item text">Pets</div>
                 <div class="item text">Awards</div>
                 <div class="item text">Staffers</div>
@@ -249,9 +249,11 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/countup.js/1.9.3/countUp.js"></script>
     <script type="text/javascript">
         $(function () {
             $(window).scroll(function () {
+                console.log($(this).scrollTop());
                 if ($(this).scrollTop() > 55) {
                     $('.header .main').addClass('navFixed');
                 } else {
@@ -263,8 +265,30 @@
                 } else {
                     $('.top-btn').css('bottom', '-100px').css('opacity', '.2');
                 }
+
+                if ($(this).scrollTop() > 4000) {
+                    countup();
+                    excuted = true;
+                }
             });
+
+
         });
+
+
+
+        function countup() {
+            var count1 = new CountUp("num1", 0, 1000);
+            var count2 = new CountUp("num2", 0, 20);
+            var count3 = new CountUp("num3", 0, 100);
+            var count4 = new CountUp("num4", 0, 1200);
+            count1.start();
+            count2.start();
+            count3.start();
+            count4.start();
+        }
+
+
     </script>
 </body>
 
