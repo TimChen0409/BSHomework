@@ -10,6 +10,16 @@
         * {
             font-family: "微軟正黑體", Arial, Helvetica, sans-serif;
         }
+
+        .avatarbox {
+            width: 150px;
+            height: 150px;
+        }
+
+        .avatarbox img {
+            border-radius: 50%;
+            width: 100%;
+        }
     </style>
 
 </head>
@@ -17,14 +27,20 @@
 <body>
     <div class="jumbotron">
         <div class="container">
-            <h1 class="text-primary">Build School 作業列表</h1>
+            <div class="avatarbox">
+                <img src="avatar.jpg" alt="">
+            </div>
+            <h4 class="text-info">Tim Chen</h4>
+            <h1 class="text-info">Build School 作業列表</h1>
         </div>
     </div>
     <div class="container">
         <ul class="list-group">
-            <li class="list-group-item"><a href="curriculum/index.html" class="text-success h3">2020/06/24 國小課表Table手刻</a>
+            <li class="list-group-item">
+                <a href="curriculum/index.html" class="text-primary h4">2020/06/24 國小課表Table手刻</a>
             </li>
-            <li class="list-group-item"><a href="Anilove/index.html" class="text-success h3">2020/06/29 Anilove網站切版</a>
+            <li class="list-group-item">
+                <a href="Anilove/index.html" class="text-primary h4">2020/06/29 Anilove網站切版</a>
             </li>
         </ul>
     </div>
