@@ -3,7 +3,7 @@
     padding: 0;
     list-style: none;
     transition: all 0.3s;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     text-decoration: none;
 }
 
@@ -30,7 +30,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .header .top .row .left i {
@@ -55,7 +54,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all .4s ease;
+    transition: all 0.4s ease;
     overflow: hidden;
     margin: 0 3px;
 }
@@ -68,13 +67,11 @@
     color: #272626;
 }
 
-
 .header .main {
     font-size: 18px;
     background-color: #fff;
     padding: 10px 0;
     width: 100%;
-
 }
 
 .header .main .main-content {
@@ -92,7 +89,7 @@
 }
 
 .header .main .logo .title {
-    font-family: 'PT Serif', serif;
+    font-family: "PT Serif", serif;
     color: #535353;
     font-size: 50px;
     padding: 5px 15px;
@@ -112,11 +109,11 @@
     line-height: 26px;
     letter-spacing: 1px;
     box-sizing: border-box;
-    transition-duration: .1s;
+    transition-duration: 0.1s;
     border-bottom: 3px solid #ffffff;
 }
 
-.header .main nav li a{
+.header .main nav li a {
     color: #535353;
 }
 
@@ -132,7 +129,6 @@
     color: #ff9933;
     background-color: #fff;
     font-weight: 700;
-
 }
 
 .btn-group button:hover {
@@ -144,13 +140,13 @@
 .container {
     display: flex;
     flex-direction: column;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
 }
 
 .banner {
     position: relative;
     height: 650px;
-    background-image: url('img/asset_7.jpeg');
+    background-image: url("img/asset_7.jpeg");
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -181,7 +177,6 @@
     position: absolute;
     bottom: 25%;
     left: 19%;
-
 }
 
 .btn-group2 button {
@@ -305,12 +300,12 @@
     filter: brightness(1);
 }
 
-.help p:hover~img {
-    filter: brightness(.5);
+.help p:hover ~ img {
+    filter: brightness(0.5);
 }
 
 .help .main-content .pic img:hover {
-    filter: brightness(.5);
+    filter: brightness(0.5);
 }
 
 .volunteer .main-content {
@@ -361,7 +356,7 @@
     width: 1200px;
     margin: auto;
     height: 390px;
-    background-image: url('img/asset_11.jpeg');
+    background-image: url("img/asset_11.jpeg");
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
@@ -413,7 +408,7 @@
 }
 
 .parallax {
-    background-image: url('img/asset_13.jpeg');
+    background-image: url("img/asset_13.jpeg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -421,7 +416,6 @@
     height: 700px;
     border-bottom: solid 20px #ff9933;
     margin-bottom: 80px;
-    ;
 }
 
 .latest {
@@ -434,8 +428,6 @@
     text-align: center;
     font-weight: 700;
 }
-
-
 
 .latest .text h2 {
     color: #535353;
@@ -491,24 +483,22 @@
     font-size: 30px;
 }
 
-
-
 .more .item .more-item h2:hover {
     color: #ff9933;
 }
 
 .more .pic1 {
-    background-image: url('img/asset_14.jpeg');
+    background-image: url("img/asset_14.jpeg");
     background-repeat: no-repeat;
 }
 
 .more .pic2 {
-    background-image: url('img/asset_15.jpeg');
+    background-image: url("img/asset_15.jpeg");
     background-repeat: no-repeat;
 }
 
 .record {
-    background-image: url('img/asset_16.jpeg');
+    background-image: url("img/asset_16.jpeg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -566,7 +556,6 @@
     position: relative;
 }
 
-
 .ig-pic .item img {
     width: 100%;
     height: 100%;
@@ -580,12 +569,19 @@
     width: 100%;
     background-color: #ff9933;
     opacity: 0;
-    transition: all 0.4s ease-in-out;
+    transition: all .4s ease-in;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 0;
 }
 
 .ig-pic .mask:hover {
-    opacity: .6;
-    transition: all 0.4s ease-in-out;
+    opacity: 0.6;
+    font-weight: bold;
+    font-size: 38px;
 }
 
 .footer {
@@ -613,7 +609,6 @@
 .footer .text i {
     color: #ff9933;
 }
-
 
 .footer .logo {
     display: flex;
@@ -660,7 +655,7 @@
     font-size: 50px;
     padding: 5px 15px;
     font-weight: 700;
-    font-family: 'PT Serif', serif;
+    font-family: "PT Serif", serif;
 }
 
 .footer .main-content .text p {
@@ -705,7 +700,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    opacity: .2;
+    opacity: 0.2;
 }
 
 .top-btn i {
