@@ -12,7 +12,6 @@
 
 <body>
     <div class="header">
-
         <div class="top">
             <div class="row">
                 <div class="left">
@@ -27,25 +26,25 @@
                 </nav>
             </div>
         </div>
+    </div>
 
-        <div class="main">
-            <div class="main-content">
-                <div class="logo">
-                    <div>
-                        <a href="#!"><img src="img/asset_0.png"></a>
-                    </div>
-                    <h2 class="title">Anilove</h2>
+    <div class="main">
+        <div class="main-content">
+            <div class="logo">
+                <div>
+                    <a href="#!"><img src="img/asset_0.png"></a>
                 </div>
-                <nav>
-                    <li><a href="#!">Home</a></li>
-                    <li><a href="#!">About</a></li>
-                    <li><a href="#!">Events</a></li>
-                    <li><a href="#!">News</a></li>
-                    <li><a href="#!">Contacts</a></li>
-                </nav>
-                <div class="header-btn btn-group">
-                    <button>DONATE NOW!</button>
-                </div>
+                <h2 class="title">Anilove</h2>
+            </div>
+            <nav>
+                <li><a href="#!">Home</a></li>
+                <li><a href="#!">About</a></li>
+                <li><a href="#!">Events</a></li>
+                <li><a href="#!">News</a></li>
+                <li><a href="#!">Contacts</a></li>
+            </nav>
+            <div class="header-btn btn-group">
+                <button>DONATE NOW!</button>
             </div>
         </div>
     </div>
@@ -262,9 +261,9 @@
         $(function () {
             $(window).scroll(function () {
                 if ($(this).scrollTop() > 55) {
-                    $('.header .main').addClass('navFixed');
+                    $('.main').addClass('main-Fixed');
                 } else {
-                    $('.header .main').removeClass('navFixed');
+                    $('.main').removeClass('main-Fixed');
                 }
 
                 if ($(this).scrollTop() > 150) {
