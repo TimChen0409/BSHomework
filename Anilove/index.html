@@ -12,19 +12,17 @@
 
 <body>
     <div class="header">
-        <div class="top">
-            <div class="row">
-                <div class="left">
-                    <i class="fa fa-phone"></i>
-                    Toll-free:<span> (123) 456-7890</span>
-                </div>
-                <nav>
-                    <a href="#!"><i class="fa fa-twitter"></i></a>
-                    <a href="#!"><i class="fa fa-facebook"></i></a>
-                    <a href="#!"><i class="fa fa-pinterest"></i></a>
-                    <a href="#!"><i class="fa fa-linkedin"></i></a>
-                </nav>
+        <div class="row">
+            <div class="left">
+                <i class="fa fa-phone"></i>
+                Toll-free:<span> (123) 456-7890</span>
             </div>
+            <nav>
+                <a href="#!"><i class="fa fa-twitter"></i></a>
+                <a href="#!"><i class="fa fa-facebook"></i></a>
+                <a href="#!"><i class="fa fa-pinterest"></i></a>
+                <a href="#!"><i class="fa fa-linkedin"></i></a>
+            </nav>
         </div>
     </div>
 
@@ -189,11 +187,10 @@
             </div>
         </div>
 
-        <div class="ig-title">
-            See Our Adorable Pets @Instagram!
-        </div>
-
         <div class="ig-pic">
+            <div class="ig-title">
+                See Our Adorable Pets @Instagram!
+            </div>
             <div class="item">
                 <img src="img/asset_3.jpeg" alt="">
                 <div class="mask">
@@ -275,6 +272,10 @@
                     countup();
                 }
             });
+
+            $('.top-btn').click(function () {
+                $('html,body').animate({ scrollTop: 0 }, 500);
+            });
         });
 
 
@@ -289,7 +290,6 @@
             count3.start();
             count4.start();
         }
-
 
     </script>
 </body>

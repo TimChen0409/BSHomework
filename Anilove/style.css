@@ -7,12 +7,12 @@
     text-decoration: none;
 }
 
-.header .top {
+.header {
     background-color: #272626;
     height: 60px;
 }
 
-.header .top .row {
+.header .row {
     font-size: 20px;
     font-weight: 400;
     color: #ffffff;
@@ -24,20 +24,20 @@
     align-items: center;
 }
 
-.header .top .row .left i {
+.header .left i {
     color: #ff9933;
 }
 
-.header .top .left span:hover {
+.header .left span:hover {
     color: #ff9933;
     cursor: pointer;
 }
 
-.header .top nav {
+.header nav {
     display: flex;
 }
 
-.header .top nav a {
+.header nav a {
     font-size: 12px;
     width: 20px;
     height: 20px;
@@ -52,12 +52,12 @@
     margin: 0 3px;
 }
 
-.header .top nav a:hover {
+.header nav a:hover {
     background-color: #ff9933;
     cursor: pointer;
 }
 
-.header .top nav i {
+.header nav i {
     color: #272626;
 }
 
@@ -546,6 +546,7 @@
 .ig-title {
     text-align: center;
     font-weight: 700;
+    width: 100%;
     color: #535353;
     font-size: 50px;
     line-height: 1.2;
@@ -554,6 +555,7 @@
 
 .ig-pic {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .ig-pic .item {
