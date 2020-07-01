@@ -679,12 +679,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .phone-call i {
     font-size: 50px;
     line-height: 80px;
     color: #ff9933;
+}
+
+.phone-call i:hover {
+    opacity: .7;
 }
 
 .top-btn {
@@ -701,6 +706,11 @@
     justify-content: center;
     align-items: center;
     opacity: 0.2;
+    cursor: pointer;
+}
+
+.top-btn:hover{
+    background-color:#7abee9;
 }
 
 .top-btn i {
