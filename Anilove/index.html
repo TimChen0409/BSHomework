@@ -261,7 +261,6 @@
     <script type="text/javascript">
         $(function () {
             $(window).scroll(function () {
-                console.log($(this).scrollTop());
                 if ($(this).scrollTop() > 55) {
                     $('.header .main').addClass('navFixed');
                 } else {
@@ -273,14 +272,10 @@
                 } else {
                     $('.top-btn').css('bottom', '-100px').css('opacity', '.2');
                 }
-
                 if ($(this).scrollTop() > 4000) {
                     countup();
-                    excuted = true;
                 }
             });
-
-
         });
 
 
