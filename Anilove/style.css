@@ -30,6 +30,7 @@
 
 .header .top .left span:hover {
     color: #ff9933;
+    cursor: pointer;
 }
 
 .header .top nav {
@@ -53,6 +54,7 @@
 
 .header .top nav a:hover {
     background-color: #ff9933;
+    cursor: pointer;
 }
 
 .header .top nav i {
@@ -134,6 +136,7 @@
     border-color: #7abee9;
     background-color: #7abee9;
     color: #fff;
+    cursor: pointer;
 }
 
 .container {
@@ -193,6 +196,7 @@
 .btn-group2 button:hover {
     border-color: #000;
     background-color: #000;
+    cursor: pointer;
 }
 
 .about {
@@ -404,6 +408,7 @@
 .btn-group3 button:hover {
     border-color: #7abee9;
     background-color: #7abee9;
+    cursor: pointer;
 }
 
 .parallax {
@@ -475,6 +480,7 @@
 
 .more .item .more-item span:hover {
     color: #ff9933;
+    cursor: pointer;
 }
 
 .more .item .more-item h2 {
@@ -484,6 +490,7 @@
 
 .more .item .more-item h2:hover {
     color: #ff9933;
+    cursor: pointer;
 }
 
 .more .pic1 {
@@ -581,6 +588,7 @@
     opacity: 0.6;
     font-weight: bold;
     font-size: 38px;
+    cursor: pointer;
 }
 
 .footer {
@@ -663,6 +671,7 @@
 
 .footer .main-content span:hover {
     color: #ff9933;
+    cursor: pointer;
 }
 
 .phone-call {
@@ -689,6 +698,7 @@
 
 .phone-call i:hover {
     opacity: 0.7;
+    cursor: pointer;
 }
 
 .top-btn {
@@ -710,6 +720,7 @@
 
 .top-btn:hover {
     background-color: #7abee9;
+    cursor: pointer;
 }
 
 .top-btn i {
