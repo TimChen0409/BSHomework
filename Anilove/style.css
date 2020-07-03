@@ -140,45 +140,46 @@
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
     font-family: "Lato", sans-serif;
 }
 
 .banner {
-    position: relative;
     height: 650px;
     background-image: url("img/asset_7.jpeg");
     background-position: center;
     background-repeat: no-repeat;
-}
-
-.banner .text {
-    position: absolute;
-    bottom: 42%;
-    left: 19%;
+    background-size: cover;
     font-weight: 700;
 }
 
-.banner .text p {
+.banner .content {
+    width: 1200px;
+    margin: auto;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.banner h4 {
     font-size: 50px;
     color: #535353;
 }
 
-.banner .text h1 {
+.banner h1 {
     color: #7abee9;
     font-size: 80px;
 }
 
-.banner .text h4 {
+.banner p {
     font-size: 24px;
     color: #535353;
 }
 
 .banner .banner-btn {
-    position: absolute;
-    bottom: 25%;
-    left: 19%;
+    padding: 40px 0 0;
 }
 
 .btn-group2 button {
