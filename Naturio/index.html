@@ -1,11 +1,627 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naturio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link
+        href="https://ld-wp.template-help.com/woocommerce_prod-11619_v1/wp-content/plugins/cherry-testi/includes/swiper/css/swiper.min.css?ver=4.3.5"
+        rel="stylesheet">
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        body {
+            font-family: 'PT Sans', sans-serif;
+        }
+
+        .container {
+            width: 1200px;
+            margin: auto;
+        }
+
+        .margin-block-sm {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .margin-block-md {
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+
+        .margin-block-lg {
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+        /* 共用元件End */
+
+        .top-panel {
+            width: 100%;
+            line-height: 1.7;
+            background-color: #679509;
+            padding: 10px 0;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .top-container-wrap {
+            padding: 0 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .top-navbar ul {
+            display: flex;
+            padding: 0 10px;
+        }
+
+        .top-navbar ul li {
+            padding: 0 20px;
+            border-right: 1px solid #fff;
+            font-size: 13px;
+            letter-spacing: 0.05em;
+        }
+
+        .top-navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .header-panel {
+            padding: 8px 0;
+        }
+
+        .header-container-wrap {
+            padding: 0 15px;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+
+        .header-navbar {
+            flex-grow: 3;
+        }
+
+        .header-navbar ul {
+            display: flex;
+            justify-content: flex-end;
+            width: auto;
+            margin: 25px 5px;
+        }
+
+        .header-navbar ul li {
+            padding: 0 16px;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            line-height: 1.6;
+            font-weight: bold;
+        }
+
+        .header-navbar ul li a {
+            text-decoration: none;
+            color: #a5a5a5;
+        }
+
+        .main-content {
+            width: 100%;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <header>
+        <div class="top-panel">
+            <div class="top-container-wrap container">
+                <div class="top-message">
+                    <p>Last sale up to <b>20% OFF.</b> Use code <b>“SALE70”.</b></p>
+                </div>
+                <div class="top-navbar">
+                    <ul>
+                        <li><a href="#!">COMPARE</a></li>
+                        <li><a href="#!">WISHLIST</a></li>
+                        <li><a href="#!">LOGIN</a></li>
+                        <li><a href="#!"><span class="lnr lnr-cart"></span>CART: <span class="count">0</span></a></li>
+                        <li><a href="#!">USD, $</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-panel">
+            <div class="header-container-wrap container">
+                <div class="header-logo">
+                    <a href="#!"><img src="img/asset0.png" alt=""></a>
+                </div>
+                <div class="header-navbar">
+                    <ul>
+                        <li><a href="#!">HOME</a></li>
+                        <li><a href="#!">ABOUT</a></li>
+                        <li><a href="#!">FEATURES</a></li>
+                        <li><a href="#!">BLOG</a></li>
+                        <li><a href="#!">SHOP</a></li>
+                        <li><a href="#!">CONTACTS</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="banner">
+            <div class="container">
+                <div class="banner-text">
+                    <h1>Green Leaves<br>Up To <span>20% Off</span></h1>
+                    <p>Always Fresh, Crispy and Full of Vitamins</p>
+                </div>
+                <div class="banner-btn">
+                    <button>ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="intro container">
+            <div class="intro-title">
+                <h2>Welcome to our healthy farm!</h2>
+            </div>
+
+            <div class="intro-features">
+                <div class="feature">
+                    <div class="num">
+                        <img src="https://picsum.photos/56/56/?random=1">
+                    </div>
+                    <div class="text">
+                        <h4>Best Quality Products</h4>
+                        <p>We stand for providing the most fresh organic products which will serve your health and be a
+                            source of vitamins and minerals for our clients.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="num">
+                        <img src="https://picsum.photos/56/56/?random=1">
+                    </div>
+                    <div class="text">
+                        <h4>Farmer Products</h4>
+                        <p>We work with many farms to provide you with natural products grown with love and care with no
+                            GMO or pesticides.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="num">
+                        <img src="https://picsum.photos/56/56/?random=1">
+                    </div>
+                    <div class="text">
+                        <h4>Fast Delivery</h4>
+                        <p>We want our client to receive their fresh products as soon as possible, so we process and
+                            ship the order at once.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="intro-pic">
+                <div class="banner">
+                    <img src="https://picsum.photos/590/360/?random=2">
+                </div>
+                <div class="banner">
+                    <img src="https://picsum.photos/590/360/?random=3">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="products container">
+            <div class="title">
+                <h3>Our Products</h3>
+            </div>
+            <div class="tabs">
+                <li class="tab-item"><a href="#!">NEW ARRIVALS</a></li>
+                <li class="tab-item"><a href="#!">ORGANIC & NATURAL</a></li>
+                <li class="tab-item"><a href="#!">THE FARM STORY</a></li>
+                <li class="tab-item"><a href="#!">PLUM CAKE</a></li>
+            </div>
+
+            <div class="tabs-content">
+                <div class="product">
+                    <div class="product-thumbnail">
+                        <a href="#!"><img src="https://picsum.photos/245/245/?random=4"></a>
+                        <span class="onsale">Sale!</span>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-thumbnail">
+                        <a href="#!"><img src="https://picsum.photos/245/245/?random=4"></a>
+                        <span class="featured">Featured</span>
+                    </div>
+                    <div class="product-info">
+                        <ul>
+                            <li>type1</li>
+                            <li>type2</li>
+                            <li>type3</li>
+                        </ul>
+                        <h3>product name</h3>
+                        <p class="price"><span class="del"></span>1.23$</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-thumbnail">
+                        <a href="#!"><img src="https://picsum.photos/245/245/?random=4"></a>
+                    </div>
+                    <div class="product-info">
+                        <ul>
+                            <li>type1</li>
+                            <li>type2</li>
+                            <li>type3</li>
+                        </ul>
+                        <h3>product name</h3>
+                        <p class="price"><span class="del"></span>1.23$</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-thumbnail">
+                        <a href="#!"><img src="https://picsum.photos/245/245/?random=4"></a>
+                    </div>
+                    <div class="product-info">
+                        <ul>
+                            <li>type1</li>
+                            <li>type2</li>
+                            <li>type3</li>
+                        </ul>
+                        <h3>product name</h3>
+                        <p class="price"><span class="del"></span>1.23$</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-thumbnail">
+                        <a href="#!"><img src="https://picsum.photos/245/245/?random=4"></a>
+                    </div>
+                    <div class="product-info">
+                        <ul>
+                            <li>type1</li>
+                            <li>type2</li>
+                            <li>type3</li>
+                        </ul>
+                        <h3>product name</h3>
+                        <p class="price"><span class="del"></span>1.23$</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-thumbnail">
+                        <a href="#!"><img src="https://picsum.photos/245/245/?random=4"></a>
+                    </div>
+                    <div class="product-info">
+                        <ul>
+                            <li>type1</li>
+                            <li>type2</li>
+                            <li>type3</li>
+                        </ul>
+                        <h3>product name</h3>
+                        <p class="price"><span class="del"></span>1.23$</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-thumbnail">
+                        <a href="#!"><img src="https://picsum.photos/245/245/?random=4"></a>
+                    </div>
+                    <div class="product-info">
+                        <ul>
+                            <li>type1</li>
+                            <li>type2</li>
+                            <li>type3</li>
+                        </ul>
+                        <h3>product name</h3>
+                        <p class="price"><span class="del"></span>1.23$</p>
+                    </div>
+                </div>
+                <div class="product">
+                    <div class="product-thumbnail">
+                        <a href="#!"><img src="https://picsum.photos/245/245/?random=4"></a>
+                        <span class="featured">Featured</span>
+                    </div>
+                    <div class="product-info">
+                        <ul>
+                            <li>type1</li>
+                            <li>type2</li>
+                            <li>type3</li>
+                        </ul>
+                        <h3>product name</h3>
+                        <p class="price"><span class="del"></span>1.23$</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="shopNow container">
+            <div class="shopNow-text">
+                <h1>Fruits and Vegetables</h1>
+                <p>Fresh and Delicious All Year Round!</p>
+            </div>
+            <div class="shopNow-btn">
+                <button>SHOP NOW!</button>
+            </div>
+        </div>
+
+        <div class="vegetable-info container margin-block-lg">
+            <div class="vegetable-pic">
+                <img src="https://picsum.photos/810/618/?random=7">
+            </div>
+            <div class="vegetable-info">
+                <div class="text-block">
+                    <h4>A Source of Vitamins</h4>
+                    <p>Vegetables can be eaten either raw or cooked and play an important role in human nutrition, being
+                        mostly low in fat and carbohydrates, but high in vitamins, minerals and dietary fiber.</p>
+                </div>
+                <div class="text-block">
+                    <h4>Best Quality Products</h4>
+                    <p>“We eliminated any possible pollution in our soils in order to deliver the purest organic produce
+                        to our customers’ tables.“</p>
+                </div>
+                <div class="text-block">
+                    <h4>Best Quality Products</h4>
+                    <p>“We eliminated any possible pollution in our soils in order to deliver the purest organic produce
+                        to our customers’ tables.“</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="blog-info magin-block-lg">
+            <div class="container">
+                <div class="title">Latest from the Blog</div>
+                <div class="acticle">
+                    <div class="acticle-thumbnail">
+                        <img src="https://picsum.photos/360/270/?random=10">
+                    </div>
+                    <div class="acticle-info">
+                        <div class="view-btn"><a href="#!">YOUR HEALTH</a></div>
+                        <h5>Health Benefits of a Raw Food</h5>
+                        <p>
+                            <span class="post-date">October 23, 2017</span>
+                            <span class="post-comments">Comments: 0</span>
+                            <span class="post-author">Posted by admin</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="acticle">
+                    <div class="acticle-thumbnail">
+                        <img src="https://picsum.photos/360/270/?random=10">
+                    </div>
+                    <div class="acticle-info">
+                        <div class="view-btn"><a href="#!">YOUR HEALTH</a></div>
+                        <h5>The Anytime Snack Pack for Everyone</h5>
+                        <p>
+                            <span class="post-date">October 23, 2017</span>
+                            <span class="post-comments">Comments: 1</span>
+                            <span class="post-author">Posted by admin</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="acticle">
+                    <div class="acticle-thumbnail">
+                        <img src="https://picsum.photos/360/270/?random=10">
+                    </div>
+                    <div class="acticle-info">
+                        <div class="view-btn"><a href="#!">YOUR HEALTH</a></div>
+                        <h5>6 After-School Snacks the Kiddos Will Love</h5>
+                        <p>
+                            <span class="post-date">October 23, 2017</span>
+                            <span class="post-comments">Comments: 2</span>
+                            <span class="post-author">Posted by admin</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cold-cereals container">
+            <div class="cold-cereals-column">
+                <h5>Cold-cereals</h5>
+                <ul>
+                    <li>
+                        <ul>
+                            <li>type1</li>
+                            <li>type2</li>
+                            <li>type3</li>
+                        </ul>
+                        <h3>product name</h3>
+                        <p class="price"><span class="del"></span>1.23$</p>
+                    </li>
+                    <li>
+                        <ul>
+                            <li>type1</li>
+                            <li>type2</li>
+                            <li>type3</li>
+                        </ul>
+                        <h3>product name</h3>
+                        <p class="price"><span class="del"></span>1.23$</p>
+                    </li>
+                    <li>
+                        <ul>
+                            <li>type1</li>
+                            <li>type2</li>
+                            <li>type3</li>
+                        </ul>
+                        <h3>product name</h3>
+                        <p class="price"><span class="del"></span>1.23$</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="cold-cereals-column">
+                <h5>Cold-cereals</h5>
+                <ul>
+                    <li>
+                        <ul>
+                            <li>type1</li>
+                            <li>type2</li>
+                            <li>type3</li>
+                        </ul>
+                        <h3>product name</h3>
+                        <p class="price"><span class="del"></span>1.23$</p>
+                    </li>
+                    <li>
+                        <ul>
+                            <li>type1</li>
+                            <li>type2</li>
+                            <li>type3</li>
+                        </ul>
+                        <h3>product name</h3>
+                        <p class="price"><span class="del"></span>1.23$</p>
+                    </li>
+                    <li>
+                        <ul>
+                            <li>type1</li>
+                            <li>type2</li>
+                            <li>type3</li>
+                        </ul>
+                        <h3>product name</h3>
+                        <p class="price"><span class="del"></span>1.23$</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="cold-cereals-column">
+                <h5>Cold-cereals</h5>
+                <ul>
+                    <li>
+                        <ul>
+                            <li>type1</li>
+                            <li>type2</li>
+                            <li>type3</li>
+                        </ul>
+                        <h3>product name</h3>
+                        <p class="price"><span class="del"></span>1.23$</p>
+                    </li>
+                    <li>
+                        <ul>
+                            <li>type1</li>
+                            <li>type2</li>
+                            <li>type3</li>
+                        </ul>
+                        <h3>product name</h3>
+                        <p class="price"><span class="del"></span>1.23$</p>
+                    </li>
+                    <li>
+                        <ul>
+                            <li>type1</li>
+                            <li>type2</li>
+                            <li>type3</li>
+                        </ul>
+                        <h3>product name</h3>
+                        <p class="price"><span class="del"></span>1.23$</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="swiper-block">
+            <div class="container">
+                <h3>Our Clients Testimonials</h3>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="client-img">
+                                <img src="https://picsum.photos/78/78/?random=15">
+                            </div>
+                            <h3>66</h3>
+                            <p class="client-testimonial">I’d like to admit that the quality of clothes is really good. I ordered different items from different manufacturers, and they are all high-class!</p>
+                            <h4 class="client-name">Tim Diaz</h4>
+                            <p class="client-type">Customer</p>
+
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="client-img">
+                                <img src="https://picsum.photos/78/78/?random=15">
+                            </div>
+                            <h3>66</h3>
+                            <p class="client-testimonial">Thank you, Naturio, for remarkable discount you provided me! I became a regular buyer because my family and relatives now adore your products. We also shipped it to our overseas friends as such products are hard to find elsewhere!</p>
+                            <h4 class="client-name">Amenda Appleboum</h4>
+                            <p class="client-type">Customer</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="client-img">
+                                <img src="https://picsum.photos/78/78/?random=15">
+                            </div>
+                            <h3>66</h3>
+                            <p class="client-testimonial">It was my first time to buy healthy food online and I can say I will order it again and again! Now I pay more attention to my health and have a lot of organic products. Thank you, guys, for your attention to details and customers!</p>
+                            <h4 class="client-name">Alice Show</h4>
+                            <p class="client-type">Customer</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="Subscribe container">
+            <h3>Subscribe Newsletter</h3>
+            <div class="subscribe-panel">
+                <div class="input"></div>
+                <div class="btn"><a href="#!">Subscribe</a></div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="type">
+                <h5>Categories</h5>
+                <ul>
+                    <li><a href="#!">New Products</a></li>
+                    <li><a href="#!">Our Stores</a></li>
+                    <li><a href="#!">Top sellers</a></li>
+                    <li><a href="#!">Uncategorized</a></li>
+                    <li><a href="#!">Your Health</a></li>
+                </ul>
+            </div>
+            <div class="type">
+                <h5>Information</h5>
+                <ul>
+                    <li><a href="#!">Home</a></li>
+                    <li><a href="#!">About</a></li>
+                    <li><a href="#!">Blog</a></li>
+                    <li><a href="#!">Shop</a></li>
+                    <li><a href="#!">Contacts</a></li>
+                </ul>
+            </div>
+            <div class="type">
+                <h5>My account</h5>
+                <ul>
+                    <li><a href="#!">Checkout</a></li>
+                    <li><a href="#!">Compare</a></li>
+                    <li><a href="#!">My Account</a></li>
+                    <li><a href="#!">Wishlist</a></li>
+                </ul>
+            </div>
+            <div class="type">
+                <h5>Store Information</h5>
+                <ul>
+                    <li>Address: 4578 Marmora Road, Glasgow</li>
+                    <li>Phones: +3 <a href="#!">(800) 2345-6789:
+                        +3(800) 2345-6790</a></li>
+                    <li>Hours: 7 Days a week from 9:00
+                        am to 7:00 pm</li>
+                    <li>E-mail: <a href="#!">info@demolink.org</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+    <script type="text/javascript"
+        src="https://ld-wp.template-help.com/woocommerce_prod-11619_v1/wp-content/plugins/elementor/assets/lib/swiper/swiper.jquery.min.js?ver=4.4.3"></script>
 </body>
+
 </html>
