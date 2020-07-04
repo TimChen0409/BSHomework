@@ -24,10 +24,17 @@ body {
     margin-bottom: 90px;
 }
 
-.padding-block-xl {
+
+.padding-block-200 {
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.padding-block-240 {
     padding-top: 240px;
     padding-bottom: 240px;
 }
+
 
 .btn-style {
     position: relative;
@@ -298,3 +305,26 @@ body {
     justify-content: center;
 }
 
+.shopNow-block{
+    background-image: url('img/asset37.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.shopNow-block .shopNow-block-text h1{
+    color: #363636;
+    line-height: 1.2;
+    font-size: 82px;
+}
+
+.shopNow-block .shopNow-block-text p{
+    color: #363636;
+    line-height: 1.35;
+    font-size: 30px;
+    font-family: Pacifico, handwriting;
+    margin: 20px 0 40px;
+}
