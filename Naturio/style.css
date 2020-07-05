@@ -108,7 +108,6 @@ body {
     z-index: 99;
     text-align: center;
     border-radius: 50px;
-    /* background-color: #1e1d24; */
     background: linear-gradient(to right, #86ae34 50%, #1e1d24 50%);
     background-size: 200% 100%;
     background-position: right bottom;
@@ -120,8 +119,6 @@ body {
 #toTop:hover {
     background-position: left bottom;
 }
-
-
 
 .top-panel {
     width: 100%;
@@ -246,6 +243,7 @@ body {
 .intro {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
 .intro-title {
@@ -298,6 +296,39 @@ body {
     display: flex;
     padding: 0 15px;
 }
+
+.intro-pic-block .pic {
+    position: relative;
+}
+
+.intro-pic-block .pic:hover {
+    z-index: 1;
+    
+}
+
+
+
+.intro-pic-block .pic:before{
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    bottom: 15px;
+    left: 0px;
+    border: 2px solid #fff;
+    opacity: 0;
+    transition: .4s;
+}
+
+.intro-pic-block .pic:hover:before {
+    opacity: .5;
+    right: 10px;
+    bottom: 15px;
+    left: 10px;
+    background-color: rgba(134,174,52,0.3);
+}
+
+
 
 .products-block {
     display: flex;
