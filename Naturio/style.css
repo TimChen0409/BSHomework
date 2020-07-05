@@ -119,6 +119,29 @@ body {
     text-decoration: none;
 }
 /* 共用元件End */
+#loading {
+    z-index: 99;
+    background: #fff;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+}
+
+#loading .loading-icon{
+    position: fixed;
+    width: 300px;
+    height: 200px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
 
 #toTop {
     position: fixed;
@@ -128,7 +151,7 @@ body {
     text-decoration: none;
     width: 44px;
     height: 44px;
-    z-index: 99;
+    z-index: 9;
     text-align: center;
     border-radius: 50px;
     background: linear-gradient(to right, #86ae34 50%, #1e1d24 50%);
@@ -210,11 +233,12 @@ body {
     font-size: 16px;
 }
 
-.popup-check{
+.popup-check {
     margin-top: 100px;
 }
 
-.popup-check #not-show,.popup-check label{
+.popup-check #not-show,
+.popup-check label {
     cursor: pointer;
 }
 

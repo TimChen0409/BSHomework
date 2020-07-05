@@ -1,5 +1,10 @@
 $(function () {
-    $(window).scroll(()=> {
+    setTimeout(() => {
+        $('#loading').addClass('animate__animated animate__fadeOut');
+    }, 2000); 
+
+
+    $(window).scroll(() => {
         if ($(this).scrollTop() > 150) {
             $('#toTop').css('opacity', '1');
         } else {
@@ -10,22 +15,22 @@ $(function () {
     setTimeout(() => {
         $('.popup').show();
         showPopup();
-    }, 5000);
+    }, 8000);
 
     $('.swiper-container').hover(swiperMouseIn, swiperMouseOut);
     $('.product').hover(productMouseIn, productMouseOut);
     $('.product_button_block').hide();
     $('.popup').hide();
 
-    $('#toTop').click(()=> {
+    $('#toTop').click(() => {
         $('html,body').animate({ scrollTop: 0 }, 500);
     });
 
-    $('.close-btn').click(()=>{
+    $('.close-btn').click(() => {
         $('.popup').hide();
     })
 
-    
+
 });
 
 function swiperMouseIn() {
@@ -55,6 +60,6 @@ function productMouseOut() {
     productButtonBlock.removeClass('animate__fadeInUp').addClass('animate__fadeOutDown');
 }
 
-function showPopup(){
+function showPopup() {
     $('.popup').addClass('animate__animated animate__fadeInUp');
 }
