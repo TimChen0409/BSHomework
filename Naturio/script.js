@@ -15,7 +15,7 @@ $(function () {
     setTimeout(() => {
         $('.popup').show();
         showPopup();
-    }, 8000);
+    }, 9000);
 
     $('.swiper-container').hover(swiperMouseIn, swiperMouseOut);
     $('.product').hover(productMouseIn, productMouseOut);
@@ -29,8 +29,6 @@ $(function () {
     $('.close-btn').click(() => {
         $('.popup').hide();
     })
-
-
 });
 
 function swiperMouseIn() {
