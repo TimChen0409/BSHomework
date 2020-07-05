@@ -48,6 +48,11 @@ body {
 }
 
 .btn-md {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 14px 5px;
+    margin: 0 5px;
+    line-height: 1;
 }
 
 .btn-lg {
@@ -75,7 +80,48 @@ body {
 .btn-hover1:hover:after {
     width: 100%;
 }
+
+.price {
+    font-weight: 900;
+}
+
+.price del {
+    color: #a5a5a5;
+    font-size: 14px;
+}
+
+.price ins {
+    color: #86ae34;
+    font-size: 20px;
+    text-decoration: none;
+}
 /* 共用元件End */
+
+#toTop {
+    position: fixed;
+    opacity: 1;
+    bottom: 80px;
+    right: 20px;
+    text-decoration: none;
+    width: 44px;
+    height: 44px;
+    z-index: 99;
+    text-align: center;
+    border-radius: 50px;
+    /* background-color: #1e1d24; */
+    background: linear-gradient(to right, #86ae34 50%, #1e1d24 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    color: #fff;
+    line-height: 3;
+    transition: 0.3s;
+}
+
+#toTop:hover {
+    background-position: left bottom;
+}
+
+
 
 .top-panel {
     width: 100%;
@@ -113,6 +159,11 @@ body {
 .top-navbar ul li a {
     text-decoration: none;
     color: #fff;
+    transition: .3s;
+}
+
+.top-navbar ul li a:hover {
+    color: #c7ed79;
 }
 
 .top-navbar ul li a i {
@@ -263,6 +314,7 @@ body {
     color: #4f4f4f;
     font-family: Pacifico, handwriting;
     font-size: 32px;
+    font-weight: 400;
     line-height: 1.35;
 }
 
@@ -290,6 +342,16 @@ body {
     line-height: 1;
 }
 
+.products-tabs-active {
+    font-weight: 900 !important;
+    color: #86ae34 !important;
+}
+
+.products-block .products-tabs ul li a:hover {
+    font-weight: 900;
+    color: #86ae34;
+}
+
 .products-tabs-content {
     display: flex;
     flex-wrap: wrap;
@@ -300,6 +362,23 @@ body {
     text-align: center;
     display: flex;
     flex-direction: column;
+    padding: 0 15px;
+    box-sizing: border-box;
+    margin-bottom: 22px;
+}
+
+.products-tabs-content .product-thumbnail {
+    margin-bottom: 10px;
+}
+
+.products-tabs-content .product-thumbnail a {
+    display: block;
+    padding: 10px;
+    border: 1px solid #f0f0f0;
+}
+
+.products-tabs-content .product-thumbnail img {
+    width: 100%;
 }
 
 .products-tabs-content .product .product-info {
@@ -310,6 +389,23 @@ body {
 .products-tabs-content .product .product-info ul {
     display: flex;
     justify-content: center;
+    color: #86ae34;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 300;
+    margin-bottom: 2px;
+}
+
+.products-tabs-content .product .product-info ul :not(:last-child):after {
+    content: ",";
+    margin-right: 5px;
+}
+
+.products-tabs-content .product .product-info h3 {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.45;
+    color: #333333;
 }
 
 .shopNow-block {
@@ -476,6 +572,7 @@ body {
 }
 .cold-cereals-col {
     width: 33%;
+    padding: 0 15px;
 }
 
 .cold-cereals-col h5 {
@@ -487,7 +584,7 @@ body {
     color: #4f4f4f;
 }
 
-.cold-cereals-col .product-wrap> li {
+.cold-cereals-col .product-wrap > li {
     margin-bottom: 20px;
 }
 
@@ -502,7 +599,7 @@ body {
     display: flex;
 }
 
-.cold-cereals-col ul li ul li:not(:last-child)::after {
+.cold-cereals-col ul li ul li:not(:last-child):after {
     content: ",";
     margin-right: 5px;
 }
@@ -516,8 +613,6 @@ body {
 .cold-cereals-col ul li ul a:hover {
     color: #1e1d24;
 }
-
-
 
 .cold-cereals-col ul li h6 a {
     font-size: 14px;
@@ -534,55 +629,156 @@ body {
     text-decoration: none;
 }
 
-.cold-cereals-col .price {
-    font-weight: 900;
-}
 
-.cold-cereals-col .price del {
-    color: #a5a5a5;
-    font-size: 14px;
-}
 
-.cold-cereals-col .price ins {
-    color: #86ae34;
-    font-size: 20px;
-    text-decoration: none;
-}
-
-.swiper-block{
+.swiper-block {
     background-image: url("img/asset39.png");
     background-repeat: no-repeat;
     background-size: cover;
     padding: 185px 0px 130px 0px;
 }
 
-.swiper-block .container{
+.swiper-block .container {
+    text-align: center;
+    color: #fff;
+}
+
+.swiper-block .container h3 {
+    margin-bottom: 40px;
+    color: #fff;
+    line-height: 1.35;
+    font-size: 32px;
+    font-family: Pacifico, handwriting;
+    font-weight: 400;
+}
+
+.swiper-block img {
+    margin-bottom: 10px;
+    border: 1px solid #e3e3e3;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.swiper-block h5 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.swiper-block p {
+    margin-bottom: 10px;
+    padding: 0 175px;
+}
+
+.swiper-container .swiper-button-next {
+    height: 44px;
+    width: 44px;
+    background-color: #fff;
+    border-radius: 50%;
+    right: -44px;
+    transition: 0.3s;
+}
+
+.swiper-container .swiper-button-next:after {
+    line-height: 44px;
+    font-size: 14px;
+    color: #1e1d24;
+}
+
+.swiper-container .swiper-button-prev {
+    height: 44px;
+    width: 44px;
+    background-color: #fff;
+    border-radius: 50%;
+    left: -44px;
+    transition: 0.3s;
+}
+
+.swiper-container .swiper-button-prev:after {
+    line-height: 44px;
+    font-size: 14px;
+    color: #1e1d24;
+}
+
+.subscribe-block {
     text-align: center;
 }
 
-.swiper-container .swiper-button-next{
-    height: 44px;
-    width: 44px;
-    background-color: #fff;
-    border-radius: 50%;
+.subscribe-block h3 {
+    line-height: 1.35;
+    font-size: 32px;
+    font-weight: 400;
+    font-family: Pacifico, handwriting;
+    color: #505050;
+    margin-bottom: 40px;
 }
 
-.swiper-container .swiper-button-next:after{
-    line-height: 44px;
-    font-size: 14px;
-    color: #1e1d24;
+.subscribe-panel {
+    display: flex;
+    justify-content: center;
+    margin: 0 26%;
+    padding: 5px 0;
 }
 
-.swiper-container .swiper-button-prev{
-    height: 44px;
-    width: 44px;
-    background-color: #fff;
-    border-radius: 50%;
-    
+.subscribe-input {
+    flex-grow: 5;
+    padding: 14px 10px 14px 20px;
+    border: 1px solid #e3e3e3;
+    color: #79787f;
 }
 
-.swiper-container .swiper-button-prev:after{
-    line-height: 44px;
-    font-size: 14px;
-    color: #1e1d24;
+.subscribe-input:focus {
+    outline: none;
+}
+
+.subscribe-panel .btn {
+    flex-grow: 1;
+}
+
+.subscribe-panel .btn a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+footer {
+    background-image: url("img/asset41.png");
+    background-size: cover;
+    padding: 155px 0 65px;
+}
+
+footer .container {
+    display: flex;
+    padding: 0 15px;
+}
+
+footer .container .type {
+    width: 25%;
+    padding: 0 20px;
+}
+
+footer .container .type h5 {
+    margin-bottom: 15px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.45;
+    font-family: Pacifico, handwriting;
+    letter-spacing: 0.02em;
+    color: #4f4f4f;
+}
+
+footer .container .type i {
+    color: #86ae34;
+}
+
+footer .container .type a {
+    text-decoration: none;
+    color: #79787f;
+    font-size: 15px;
+    transition: 0.3s linear;
+}
+
+footer .container .type a:hover {
+    color: #86ae34;
 }
