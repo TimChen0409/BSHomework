@@ -1,7 +1,7 @@
 $(function () {
     setTimeout(() => {
-        $('#loading').addClass('animate__animated animate__fadeOut').css('z-index','-10');
-    }, 2000); 
+        $('#loading').addClass('animate__animated animate__fadeOut').css('z-index', '-10');
+    }, 2000);
 
 
     $(window).scroll(() => {
