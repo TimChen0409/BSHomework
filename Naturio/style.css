@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     list-style: none;
+    text-decoration: none;
 }
 
 body {
@@ -16,44 +17,51 @@ body {
     margin: auto;
 }
 
-.margin-bottom-block {
+.margin-bottom-sm {
+    margin-bottom: 30px;
+}
+
+.margin-bottom-md {
     margin-bottom: 60px;
 }
 
-.margin-bottom-block-lg {
+.margin-bottom-lg {
     margin-bottom: 90px;
 }
 
-
-.padding-block-200 {
-    padding-top: 200px;
-    padding-bottom: 200px;
-}
-
-.padding-block-240 {
-    padding-top: 240px;
-    padding-bottom: 240px;
-}
-
-
-.btn-style {
+.btn {
     position: relative;
-    text-decoration: none;
+    /* text-decoration: none; */
     background-color: #86ae34;
-    font-size: 14px;
-    font-weight: bold;
     color: #fff;
-    padding: 22px 42px;
     border: none;
     outline: none;
     cursor: pointer;
 }
 
-.btn-style:hover {
+.btn-sm{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.75;
+    padding: 2px 10px;
+    display: inline-block;
+}
+
+.btn-md{
+
+}
+
+.btn-lg{
+    font-size: 14px;
+    font-weight: bold;
+    padding: 22px 42px;
+}
+
+.btn-hover1:hover {
     z-index: 1;
 }
 
-.btn-style:before {
+.btn-hover1:after {
     content: "";
     position: absolute;
     transition: .4s;
@@ -65,7 +73,7 @@ body {
     z-index: -1;
 }
 
-.btn-style:hover:before {
+.btn-hover1:hover:after {
     width: 100%;
 }
 /* 共用元件End */
@@ -104,7 +112,7 @@ body {
 }
 
 .top-navbar ul li a {
-    text-decoration: none;
+    /* text-decoration: none; */
     color: #fff;
 }
 
@@ -148,7 +156,7 @@ body {
 }
 
 .header-navbar ul li a {
-    text-decoration: none;
+    /* text-decoration: none; */
     color: #a5a5a5;
 }
 
@@ -160,6 +168,7 @@ body {
     background-image: url("img/asset36.png");
     background-repeat: no-repeat;
     background-size: cover;
+    padding: 240px 0;
 }
 
 .banner-text h1 {
@@ -184,17 +193,17 @@ body {
     margin-top: 40px;
 }
 
-.intro{
+.intro {
     display: flex;
     flex-wrap: wrap;
 }
 
-.intro-title{
+.intro-title {
     text-align: center;
     width: 100%;
     margin-bottom: 55px;
 }
-.intro-title h2{
+.intro-title h2 {
     color: #86ae34;
     line-height: 1;
     font-size: 48px;
@@ -202,26 +211,26 @@ body {
     font-weight: 400;
 }
 
-.intro-features{
+.intro-features {
     display: flex;
 }
 
-.intro-features .feature{
+.intro-features .feature {
     text-align: center;
     width: 33.33333%;
     padding: 0 17px;
 }
 
-.intro-features .feature .num{
+.intro-features .feature .num {
     margin-bottom: 35px;
 }
 
-.intro-features .feature .num img{
+.intro-features .feature .num img {
     width: 68px;
     height: 54px;
 }
 
-.intro-features .feature .text h4{
+.intro-features .feature .text h4 {
     margin: 24px 0 15px;
     font-size: 20px;
     line-height: 1.45;
@@ -231,99 +240,230 @@ body {
     color: #4f4f4f;
 }
 
-.intro-features .feature .text p{
+.intro-features .feature .text p {
     color: #8b8b8b;
 }
 
-.intro-pic-block{
+.intro-pic-block {
     display: flex;
     padding: 0 15px;
 }
 
-.products-block{
+.products-block {
     display: flex;
     flex-wrap: wrap;
 }
 
-.products-block .products-title{
+.products-block .products-title {
     width: 100%;
     text-align: center;
     margin-bottom: 20px;
 }
 
-.products-block .products-title h3{
+.products-block .products-title h3 {
     color: #4f4f4f;
     font-family: Pacifico, handwriting;
     font-size: 32px;
     line-height: 1.35;
 }
 
-.products-block .products-tabs{
+.products-block .products-tabs {
     width: 100%;
     margin-bottom: 20px;
 }
 
-.products-block .products-tabs ul{
+.products-block .products-tabs ul {
     display: flex;
     width: 100%;
     text-align: center;
     justify-content: center;
 }
 
-.products-block .products-tabs ul li{
+.products-block .products-tabs ul li {
     padding: 10px 20px;
 }
 
-.products-block .products-tabs ul li a{
-    text-decoration: none;
+.products-block .products-tabs ul li a {
+    /* text-decoration: none; */
     color: #a5a5a5;
     font-size: 14px;
     font-weight: 400;
     line-height: 1;
 }
 
-.products-tabs-content{
+.products-tabs-content {
     display: flex;
     flex-wrap: wrap;
 }
 
-.products-tabs-content .product{
+.products-tabs-content .product {
     width: 25%;
     text-align: center;
     display: flex;
     flex-direction: column;
 }
 
-.products-tabs-content .product .product-info{
+.products-tabs-content .product .product-info {
     display: flex;
     flex-direction: column;
 }
 
-.products-tabs-content .product .product-info ul{
+.products-tabs-content .product .product-info ul {
     display: flex;
     justify-content: center;
 }
 
-.shopNow-block{
-    background-image: url('img/asset37.png');
+.shopNow-block {
+    background-image: url("img/asset37.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    display: flex;
-    flex-direction: column;
     text-align: center;
+    padding: 200px 0;
 }
 
-.shopNow-block .shopNow-block-text h1{
+.shopNow-block .shopNow-block-text h1 {
     color: #363636;
     line-height: 1.2;
     font-size: 82px;
 }
 
-.shopNow-block .shopNow-block-text p{
+.shopNow-block .shopNow-block-text p {
     color: #363636;
     line-height: 1.35;
     font-size: 30px;
     font-family: Pacifico, handwriting;
     margin: 20px 0 40px;
+}
+
+.vegetable-block {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.vegetable-block .vegetable-pic {
+    width: 62%;
+    padding-left: 45px;
+    box-sizing: border-box;
+}
+
+.vegetable-block .vegetable-pic img {
+    max-width: 100%;
+}
+
+.vegetable-block .vegetable-info {
+    width: 38%;
+    padding: 0 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.vegetable-block .vegetable-info .text-block {
+    padding: 0 15px;
+}
+
+.vegetable-block .vegetable-info .text-block h4 {
+    line-height: 1.45;
+    font-weight: 400;
+    font-size: 20px;
+    font-family: Pacifico, handwriting;
+    letter-spacing: 0.02em;
+    color: #4f4f4f;
+    margin-bottom: 15px;
+}
+.vegetable-block .vegetable-info .text-block p {
+    color: #8b8b8b;
+}
+
+.blog-block{
+    background-image: url("img/asset38.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 165px 0px 85px 0px;
+}
+
+.blog-block .container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.blog-block .title{
+    width: 100%;
+    text-align: center;
+}
+
+.blog-block .title h3{
+    line-height: 1.35;
+    font-style: normal;
+    font-size: 32px;
+    font-weight: 400;
+    font-family: Pacifico, handwriting;
+    color: #333333;
+}
+
+.blog-block .acticle{
+    width: 33.33333%;
+    text-align: center;
+}
+
+.blog-block .acticle-info{
+    margin-top: 22px;
+}
+
+.acticle-info .view-btn{
+    margin-bottom: 22px;
+}
+
+.acticle-info .view-btn a{
+    transition: .4s;
+}
+
+.acticle-info .view-btn a:hover{
+    background-color: #1e1d24;
+}
+
+.acticle-info h5{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.45;
+    color: #4f4f4f;
+}
+
+.acticle-info h5 a{
+    color: inherit;
+    transition: .4s;
+}
+.acticle-info h5 a:hover{
+    color: #86ae34;
+}
+
+.acticle-info p{
+    display: inline-block;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.75;
+    color:#a5a5a5;
+}
+
+.acticle-info p span:not(:first-child):before
+{
+    content: "-";
+    margin: 0 5px;
+}
+
+.acticle-info p .post-date a {
+    color: #86ae34;
+    transition: .4s;
+}
+
+.acticle-info p .post-date a:hover {
+    color:#a5a5a5;
+}
+
+.acticle-info p .post-comments a,.acticle-info p .post-author a{
+    color: inherit;
 }
