@@ -3,7 +3,6 @@ $(function () {
         $('#loading').addClass('animate__animated animate__fadeOut').css('z-index', '-10');
     }, 2000);
 
-
     $(window).scroll(() => {
         if ($(this).scrollTop() > 150) {
             $('#toTop').css('opacity', '1');
