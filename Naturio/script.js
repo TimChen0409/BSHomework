@@ -1,6 +1,6 @@
 $(function () {
     setTimeout(() => {
-        $('#loading').addClass('animate__animated animate__fadeOut');
+        $('#loading').addClass('animate__animated animate__fadeOut').css('z-index','-10');
     }, 2000); 
 
 

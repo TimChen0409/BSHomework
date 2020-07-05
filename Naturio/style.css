@@ -120,7 +120,7 @@ body {
 }
 /* 共用元件End */
 #loading {
-    z-index: 99;
+    z-index: 10;
     background: #fff;
     left: 0;
     top: 0;
