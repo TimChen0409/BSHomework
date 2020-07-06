@@ -1,7 +1,21 @@
+var _loadingExcuted = false;
+
 $(function () {
+
     setTimeout(() => {
-        $('#loading').addClass('animate__animated animate__fadeOut').css('z-index', '-10');
+        $('#loading').addClass('animate__animated animate__fadeOut');
+        _loadingExcuted = true;
+        if (_loadingExcuted) {
+            setTimeout(() => {
+                $('#loading').hide();
+            }, 1000);
+        }
     }, 2000);
+
+    setTimeout(() => {
+        $('.popup').show();
+        showPopup();
+    }, 9000);
 
     $(window).scroll(() => {
         if ($(this).scrollTop() > 150) {
@@ -11,15 +25,15 @@ $(function () {
         }
     });
 
-    setTimeout(() => {
-        $('.popup').show();
-        showPopup();
-    }, 9000);
+    init();
+});
+
+function init() {
+    $('.product_button_block').hide();
+    $('.popup').hide();
 
     $('.swiper-container').hover(swiperMouseIn, swiperMouseOut);
     $('.product').hover(productMouseIn, productMouseOut);
-    $('.product_button_block').hide();
-    $('.popup').hide();
 
     $('#toTop').click(() => {
         $('html,body').animate({ scrollTop: 0 }, 500);
@@ -28,7 +42,7 @@ $(function () {
     $('.close-btn').click(() => {
         $('.popup').hide();
     })
-});
+}
 
 function swiperMouseIn() {
     $('.swiper-button-next').css('right', '10px');

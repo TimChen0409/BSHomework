@@ -119,6 +119,8 @@ body {
     text-decoration: none;
 }
 /* 共用元件End */
+
+
 #loading {
     z-index: 10;
     background: #fff;
@@ -329,7 +331,7 @@ body {
     font-size: 14px;
     letter-spacing: 0.05em;
     line-height: 1.6;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .header-navbar ul li span {
