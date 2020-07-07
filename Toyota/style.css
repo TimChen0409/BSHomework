@@ -1,7 +1,6 @@
 * {
     padding: 0;
     margin: 0;
-    list-style: none;
     font-family: "微軟正黑體", Helvetica, Verdana, Arial;
 }
 
@@ -23,6 +22,7 @@
 .tabs ul {
     display: flex;
     justify-content: space-between;
+    list-style: none;
 }
 
 .top-info h2 {
@@ -226,9 +226,13 @@
     padding: 6px;
 }
 
-.advantage .text-block p {
+.advantage .text-block li {
     color: #afa4a4;
     color: #8a7c7c;
     line-height: 2;
     font-weight: 700;
+    margin-left: 25px;
+    
 }
+
+
