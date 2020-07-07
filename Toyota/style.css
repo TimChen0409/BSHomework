@@ -204,7 +204,7 @@
 
 .advantage-left .text-block {
     /* opacity: 0; */
-    position: absolute;
+    position: relative;
     transition: all 0.5s ease-out;
     margin-top: 140px;
     background-color: #eeeeee;
@@ -212,6 +212,7 @@
     padding: 15px 20px;
     margin-bottom: 30px;
     right: 0;
+    float: right;
 }
 
 .advantage .text-block h3 {
