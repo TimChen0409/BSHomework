@@ -61,24 +61,15 @@ body {
     padding: 22px 42px;
 }
 
-.btn-hover1:hover {
-    z-index: 1;
-}
-
-.btn-hover1:after {
-    content: "";
-    position: absolute;
+.btn-hover1 {
+    background: linear-gradient(to right, #86ae34 50%, #1e1d24 50%);
     transition: 0.4s;
-    background: #1e1d24;
-    left: 0;
-    top: 0;
-    width: 0;
-    height: 100%;
-    z-index: -1;
+    background-size: 200% 100%;
+    background-position: right;
 }
 
-.btn-hover1:hover:after {
-    width: 100%;
+.btn-hover1:hover {
+    background-position: left;
 }
 
 .tag {
