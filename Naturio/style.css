@@ -158,14 +158,14 @@ body {
     border-radius: 50px;
     background: linear-gradient(to right, #86ae34 50%, #1e1d24 50%);
     background-size: 200% 100%;
-    background-position: right bottom;
+    background-position: right;
     color: #fff;
     line-height: 3;
     transition: 0.3s;
 }
 
 #toTop:hover {
-    background-position: left bottom;
+    background-position: left;
 }
 
 .popup {
