@@ -54,7 +54,7 @@
     background-position: top;
     line-height: 36px;
     color: #000000;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .top-info .tabs ul a:hover {
@@ -64,35 +64,34 @@
 
 .advantage {
     position: relative;
-    margin-top: 40px;
-    margin-bottom: 500px;
+    width: 695px;
+    height: 430px;
+    margin: 0px 150px 250px;
+    padding: 100px 0;
 }
 
-.advantage-right .info {
-    /* opacity: 0; */
-    position: relative;
-    left: 0;
-    top: 0;
-    width: 355px;
-    height: 380px;
-    transition: all 0.5s ease-out;
-    z-index: 4;
+.reverse {
+    margin: 0px 60px 250px;
 }
 
-.advantage-left .info {
-    /* opacity: 0; */
+.advantage img {
+    width: 100%;
+}
+
+.advantage .info {
     position: absolute;
-    right: 0;
-    top: 0;
+    left: -150px;
+    top: -20px;
     width: 355px;
-    height: 380px;
-    transition: all 0.5s ease-out;
-    z-index: 4;
+}
+
+.reverse .info {
+    left: 580px;
 }
 
 .advantage .info h2 {
     background-color: #bb0404;
-    padding: 0 5px;
+    height: 120px;
     font-size: 50px;
     color: #fff;
     text-align: center;
@@ -102,15 +101,16 @@
 .advantage .info h2 span {
     writing-mode: vertical-lr;
     vertical-align: middle;
+    max-height: 118px;
     line-height: 1;
-    font-size: 132px;
+    font-size: 112px;
     font-weight: 300;
 }
 
 .advantage .info h4 {
     background-color: #000000;
-    padding: 15px 10px;
-    font-size: 18px;
+    padding: 25px 10px;
+    font-size: 22px;
     color: #fff;
     font-weight: 400;
 }
@@ -121,98 +121,55 @@
     font-weight: 700;
 }
 
-.advantage-right .color-block {
-    /* opacity: 0; */
+.advantage:after {
+    content: "";
+    display: block;
     position: relative;
-    transition: all 0.5s ease-out;
-    background-color: #afa4a4;
-    top: 35px;
+    background-color: #eee2e2;
     width: 440px;
     height: 290px;
-    float: right;
-    z-index: 1;
-    opacity: 0.2;
+    top: -550px;
+    left: 320px;
+    z-index: -1;
 }
 
-.advantage-left .color-block {
-    /* opacity: 0; */
-    position: relative;
-    transition: all 0.5s ease-out;
-    background-color: #afa4a4;
-    left: 37%;
-    top: 60px;
+.reverse:after {
     width: 510px;
     height: 410px;
-    z-index: 1;
-    opacity: 0.2;
+    left: 270px;
 }
 
-.advantage-right .video-btn {
-    /* opacity: 0; */
-    position: absolute;
-    left: 21%;
-    top: 39.5%;
-    transition: all 0.5s ease-out;
-    cursor: pointer;
-    z-index: 2;
-}
-
-.advantage-left .video-btn {
-    /* opacity: 0; */
-    position: absolute;
-    left: 5%;
-    top: 36%;
-    transition: all 0.5s ease-out;
-    cursor: pointer;
-    z-index: 2;
-}
-
-.advantage .video-btn .video-btn-icon {
-    position: absolute;
-    height: 47px;
+.advantage .video-btn-icon {
+    position: relative;
+    height: 45px;
     width: 60px;
     background-color: #bb0404;
-    top: 50%;
-    /* right: -15px; */
-    margin-top: -30px;
     color: #fff;
     line-height: 2;
     text-align: center;
     font-size: 22px;
     cursor: pointer;
+    padding: 8px 20px;
+    bottom: 210px;
+    left: 650px;
 }
 
-.advantage .video-btn .video-btn-icon-right {
-    right: -15px;
-}
-
-.advantage .video-btn .video-btn-icon-left {
+.reverse .video-btn-icon{
     left: -15px;
 }
 
-.advantage-right .text-block {
-    /* opacity: 0; */
+.advantage .text-block {
     position: absolute;
-    transition: all 0.5s ease-out;
-    margin-top: 140px;
+    width: 680px;
     background-color: #eeeeee;
-    z-index: 3;
-    padding: 15px 20px;
-    margin-bottom: 30px;
-    margin-left: 35px;
+    z-index: 1;
+    padding: 15px;
+    right: 90px;
+    top: 500px;
 }
 
-.advantage-left .text-block {
-    /* opacity: 0; */
-    position: relative;
-    transition: all 0.5s ease-out;
-    margin-top: 140px;
-    background-color: #eeeeee;
-    z-index: 3;
-    padding: 15px 20px;
-    margin-bottom: 30px;
-    right: 0;
-    float: right;
+.reverse .text-block {
+    left: 230px;    
 }
 
 .advantage .text-block h3 {
@@ -228,12 +185,8 @@
 }
 
 .advantage .text-block li {
-    color: #afa4a4;
     color: #8a7c7c;
-    line-height: 2;
+    line-height: 1.8;
     font-weight: 700;
     margin-left: 25px;
-    
 }
-
-
