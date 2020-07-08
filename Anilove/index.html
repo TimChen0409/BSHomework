@@ -171,16 +171,16 @@
             </div>
         </div>
 
-        <div class="record">
+        <div class="record" id="record">
             <div class="main-content">
                 <div class="item pic"><img src="img/img16.jpg" alt=""></div>
                 <div class="item pic"><img src="img/img15.jpg" alt=""></div>
                 <div class="item pic"><img src="img/img14.jpg" alt=""></div>
                 <div class="item pic"><img src="img/img13.jpg" alt=""></div>
-                <div id="num1" class="item num"></div>
-                <div id="num2" class="item num"></div>
-                <div id="num3" class="item num"></div>
-                <div id="num4" class="item num"></div>
+                <div id="num1" class="item num counter">1000</div>
+                <div id="num2" class="item num counter">20</div>
+                <div id="num3" class="item num counter">100</div>
+                <div id="num4" class="item num counter">1200</div>
                 <div class="item text">Pets</div>
                 <div class="item text">Awards</div>
                 <div class="item text">Staffers</div>
@@ -252,11 +252,20 @@
     <div class="top-btn">
         <i class="fa fa-arrow-up"></i>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/countup.js/1.9.3/countUp.js"></script>
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script scr></script>
     <script type="text/javascript">
+
         $(function () {
+            if (document.getElementById("record")) {
+                $('.counter').counterUp({
+                    delay: 10,
+                    time: 1000
+                });
+            }
+
             $(window).scroll(function () {
                 if ($(this).scrollTop() > 55) {
                     $('.main').addClass('main-Fixed');
@@ -269,29 +278,13 @@
                 } else {
                     $('.top-btn').css('bottom', '-100px').css('opacity', '.2');
                 }
-                if ($(this).scrollTop() > 4000) {
-                    countup();
-                }
             });
 
             $('.top-btn').click(function () {
                 $('html,body').animate({ scrollTop: 0 }, 500);
             });
         });
-
-
-
-        function countup() {
-            var count1 = new CountUp("num1", 0, 1000);
-            var count2 = new CountUp("num2", 0, 20);
-            var count3 = new CountUp("num3", 0, 100);
-            var count4 = new CountUp("num4", 0, 1200);
-            count1.start();
-            count2.start();
-            count3.start();
-            count4.start();
-        }
-
+        
     </script>
 </body>
 
