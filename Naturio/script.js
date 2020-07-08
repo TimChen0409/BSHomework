@@ -8,9 +8,9 @@ $(function () {
         if (_loadingExcuted) {
             setTimeout(() => {
                 $('#loading').hide();
-            }, 1000);
+            }, 500);
         }
-    }, 2000);
+    }, 1000);
 
     setTimeout(() => {
         $('.popup').show();

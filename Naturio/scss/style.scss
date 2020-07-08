@@ -30,7 +30,6 @@ body {
 }
 
 .btn {
-    position: relative;
     text-decoration: none;
     background-color: #86ae34;
     color: #fff;
@@ -62,7 +61,7 @@ body {
 }
 
 .btn-hover1 {
-    background: linear-gradient(to right, #86ae34 50%, #1e1d24 50%);
+    background: linear-gradient(to right, #1e1d24 50%, #86ae34 50%);
     transition: 0.4s;
     background-size: 200% 100%;
     background-position: right;
@@ -285,26 +284,119 @@ body {
         flex-wrap: nowrap;
         align-items: center;
     }
+    .header-logo {
+        position: relative;
+    }
     .header-navbar {
         flex-grow: 3;
-        ul {
+        position: relative;
+        .ul-first-layer {
             display: flex;
             justify-content: flex-end;
             width: auto;
             margin: 25px 5px;
-        }
-        li {
-            padding: 0 16px;
-            font-size: 14px;
-            letter-spacing: 0.05em;
-            line-height: 1.6;
-            font-weight: 700;
-            span {
-                font-size: 8px;
-            }
-            a {
-                text-decoration: none;
-                color: #a5a5a5;
+            .first-layer {
+                padding: 0 16px;
+                font-size: 14px;
+                letter-spacing: 0.05em;
+                line-height: 1.6;
+                font-weight: 700;
+                &:hover .sub-container {
+                    opacity: 1;
+                    z-index: 1;
+                }
+                span {
+                    font-size: 8px;
+                }
+                a {
+                    text-decoration: none;
+                    color: #a5a5a5;
+                }
+                .sub-container {
+                    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+                }
+
+                .sub-container1 {
+                    background-color: #fff;
+                    width: 1180px;
+                    font-size: 16px;
+                    position: absolute;
+                    left: -145px;
+                    top: 80px;
+                    opacity: 0;
+                    z-index: -1;
+                    transition: 0.8s;
+                    display: flex;
+                    padding: 15px 5px;
+                    .type {
+                        width: 25%;
+                        padding: 0 20px;
+                        & + .type {
+                            border-left: 1px solid #c9cdcf;
+                        }
+                        h5 {
+                            margin-bottom: 15px;
+                            font-weight: 400;
+                            font-size: 20px;
+                            line-height: 1.45;
+                            font-family: Pacifico, handwriting;
+                            letter-spacing: 0.02em;
+                            color: #4f4f4f;
+                        }
+                        ul {
+                            line-height: 2;
+                            margin-bottom: 30px;
+                            li {
+                                a {
+                                    text-decoration: none;
+                                    font-weight: 100;
+                                    color: #79787f;
+                                    transition: 0.3s linear;
+                                    &:hover {
+                                        color: #86ae34;
+                                    }
+                                    i {
+                                        color: #86ae34;
+                                        font-size: 17px;
+                                        font-weight: 700;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .sub-container2 {
+                    background-color: #fff;
+                    font-size: 16px;
+                    position: absolute;
+                    right: 10px;
+                    top: 80px;
+                    opacity: 0;
+                    z-index: -1;
+                    transition: 0.8s;
+                    display: flex;
+                    padding: 15px 5px;
+                    ul {
+                        line-height: 2;
+                        margin-bottom: 30px;
+                        li {
+                            a {
+                                text-decoration: none;
+                                font-weight: 100;
+                                color: #79787f;
+                                transition: 0.3s linear;
+                                &:hover {
+                                    color: #86ae34;
+                                }
+                                i {
+                                    color: #86ae34;
+                                    font-size: 17px;
+                                    font-weight: 700;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -319,7 +411,7 @@ body {
         background-size: cover;
         padding: 240px 0;
 
-        .banner-text{
+        .banner-text {
             h1 {
                 font-size: 82px;
                 line-height: 1.2;
@@ -341,10 +433,6 @@ body {
         }
     }
 }
-
-
-
-
 
 .intro {
     display: flex;
@@ -421,9 +509,6 @@ body {
     }
 }
 
-
-
-
 .products-block {
     display: flex;
     flex-wrap: wrap;
@@ -461,7 +546,6 @@ body {
                         font-weight: 900;
                         color: #86ae34;
                     }
-                    
                 }
                 .products-tabs-active {
                     font-weight: 900 !important;
@@ -470,7 +554,6 @@ body {
             }
         }
     }
-   
 
     .products-tabs-content {
         display: flex;
@@ -554,9 +637,6 @@ body {
     }
 }
 
-
-
-
 .shopNow-block {
     background-image: url("../img/asset37.png");
     background-repeat: no-repeat;
@@ -564,7 +644,7 @@ body {
     background-position: center;
     text-align: center;
     padding: 200px 0;
-    .shopNow-block-text{
+    .shopNow-block-text {
         h1 {
             color: #363636;
             line-height: 1.2;
@@ -579,7 +659,6 @@ body {
         }
     }
 }
-
 
 .vegetable-block {
     max-width: 1400px;
@@ -617,7 +696,6 @@ body {
         }
     }
 }
-
 
 .blog-block {
     background-image: url("../img/asset38.png");
@@ -687,17 +765,16 @@ body {
                             color: #a5a5a5;
                         }
                     }
-                    .post-comments a,.post-author a {
+                    .post-comments a,
+                    .post-author a {
                         color: inherit;
                         text-decoration: none;
                     }
                 }
-                
             }
         }
     }
 }
-
 
 .cold-cereals.container {
     display: flex;
@@ -715,7 +792,7 @@ body {
         .product-wrap > li {
             margin-bottom: 20px;
         }
-        ul li{
+        ul li {
             .img-border {
                 display: inline-block;
                 margin-right: 20px;
@@ -754,7 +831,6 @@ body {
     }
 }
 
-
 .swiper-block {
     background-image: url("../img/asset39.png");
     background-repeat: no-repeat;
@@ -787,7 +863,7 @@ body {
         margin-bottom: 10px;
         padding: 0 175px;
     }
-    .swiper-container{
+    .swiper-container {
         .swiper-button-next {
             height: 44px;
             width: 44px;
@@ -865,8 +941,6 @@ body {
     }
 }
 
-
-
 footer {
     background-image: url("../img/asset41.png");
     background-size: cover;
@@ -888,7 +962,7 @@ footer {
             }
             ul {
                 line-height: 2;
-                li{
+                li {
                     a {
                         text-decoration: none;
                         color: #79787f;
@@ -904,15 +978,12 @@ footer {
                         }
                     }
                 }
-               
             }
         }
         .store-info li {
             color: #79787f;
             font-size: 13.5px;
             line-height: 1.8;
-            
         }
     }
 }
-
