@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon"
+        href="https://static.wixstatic.com/media/5a71f2_c1a2fd8298274f7badfbe7e336594b24%7Emv2.png/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/5a71f2_c1a2fd8298274f7badfbe7e336594b24%7Emv2.png">
+    <title>Build School - 軟體人才培訓 軟體工程師培訓 程式教育訓練 | 打造更有競爭力的軟體工程師職涯</title>
+    <link rel="stylesheet" href="Grid.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #menu-control {
+            display: none;
+        }
+
+        .logo-group .logo img {
+            vertical-align: middle;
+
+        }
+
+        @media screen and (max-width: 767px) {
+            .logo-group {
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo-group .logo {
+                display: flex;
+            }
+
+            .logo-group .hb-btn {
+                display: block;
+                width: 40px;
+                height: 40px;
+                background-color: #000;
+                position: relative;
+            }
+
+            .hb-btn span {
+                width: 32px;
+                height: 2px;
+                background-color: #fff;
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+                transition: 1s;
+            }
+
+
+
+            .hb span:first-child {
+                transform: translateY(-6px);
+            }
+
+            .hb span:last-child {
+                transform: translateY(6px);
+            }
+
+            #menu-control:checked~.main-header .hb {
+                position: fixed;
+                z-index: 999;
+                top: 20px;
+                right: 20px;
+                background: transparent;
+            }
+
+            #menu-control:checked~.main-header .hb span:nth-child(2) {
+                display: none;
+            }
+
+            #menu-control:checked~.main-header .hb span:first-child {
+                transform: translateY(0px) rotate(45deg);
+                width: 28px;
+                color: #000;
+            }
+
+            #menu-control:checked~.main-header .hb span:last-child {
+                transform: translateY(0px) rotate(135deg);
+                width: 28px;
+                color: #000;
+            }
+
+            .nav {
+                width: 60%;
+                height: 100vh;
+                right: -100%;
+                overflow: hidden;
+                background-color: #fff;
+                position: absolute;
+                top: 0;
+                transition: .5s;
+                outline: 1px solid #fa0;
+                margin-top: 60px;
+            }
+
+            .nav a {
+                display: block;
+                text-decoration: none;
+                color: #000;
+                padding: 10px 20px;
+                border-bottom: 1px dotted #666;
+            }
+
+            #menu-control:checked~.main-header .nav {
+                right: 0;
+
+            }
+
+            .swiper-block {
+                position: relative;
+
+            }
+
+            .swiper-block img {
+                width: 100%;
+            }
+
+            .swiper-container {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                z-index: -1;
+            }
+
+            .features-block {
+                margin-top: 100px;
+                text-align: center;
+            }
+
+        }
+
+        @media screen and (min-width: 768px) {
+            .main-header {
+                padding: 10px;
+                background-color: #fa0;
+            }
+
+            .main-header .container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo {
+                display: flex;
+            }
+
+            .nav {
+                display: flex;
+            }
+
+            .nav a {
+                padding: 0 20px;
+                color: #fff;
+                font-size: 14px;
+                text-decoration: none;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="swiper-block">
+        <input type="checkbox" name="" id="menu-control">
+        <div class="main-header">
+            <div class="container">
+                <div class="logo-group">
+                    <div class="logo">
+                        <div class="logo-img">
+                            <img src="img/asset0.png" alt="圖片說明">
+                        </div>
+                        <div class="logo-text">
+                            <h2>Build School</h2>
+                            <p>developer career builder</p>
+                        </div>
+                    </div>
+                    <div class="hb">
+                        <label class="hb-btn" for="menu-control">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+                <nav class="nav">
+                    <li><a href="#!">台北班簡介</a></li>
+                    <li><a href="#!">新竹班簡介</a></li>
+                    <li><a href="#!">中華大學校內班簡介</a></li>
+                    <li><a href="#!">Blog</a></li>
+                    <li><a href="#!">歷屆老師</a></li>
+                    <li><a href="#!">關於</a></li>
+                    <li><a href="#!">問題與諮詢</a></li>
+                </nav>
+            </div>
+        </div>
+
+
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <img src="https://picsum.photos/1400/500/?random=1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://picsum.photos/1400/500/?random=1">
+
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://picsum.photos/1400/500/?random=1">
+                </div>
+            </div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination swiper-pagination-white"></div>
+        </div>
+    </div>
+
+    <div class="features-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12 col-xl-6">
+                            <div class="pic">
+                                <img src="https://picsum.photos/300/300/?random=1">
+                            </div>
+                            <h2>Build School
+                                <span>/*我們的理念*/</span></h2>
+                            <p>Build = 將程式碼編譯及建置成可執行的軟體<br>
+                                Build = 動手做<br>
+                                Build = 軟體開發職涯的打造者</p>
+                        </div>
+                        <div class="col-12 col-xl-6">
+                            <h2>實作及就業導向的軟體開發學校</h2>
+                            <p>因應數位新時代的來臨，軟體、App、IoT
+                                、SaaS、雲端平台的應用需求大爆炸，軟體工程師的招募需求持續上升，以2016年5月求職平台的統計資料，從高科技、電商、金融、傳產、網路服務、軟體資訊、新創等各行業，台灣至少有
+                                27,000 位軟體開發工程師的職缺，甚至日本、新加坡等軟體及App 外商也來台灣求才。<br><br>
+                                為了彌補企業求才所需技能及實務教學上的落差，我們將前進校園，幫助想搭上軟體開發及互聯網經濟這艘火箭的同學們，打造更有競爭力的職涯!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12 col-xl-6">
+                            <div class="pic">
+                                <img src="https://picsum.photos/300/300/?random=1">
+                            </div>
+                            <h2>動手實作才是真學習
+                            </h2>
+                        </div>
+                        <div class="col-12 col-xl-6">
+                            <h2>打造專案作品的學習方式
+                                (Project-based Learning)</h2>
+                            <p>透過身經百戰的實務講師、各大企業的資深軟體工程師或CTO，帶領同學實作一個真正能運作的產品開發，解決真實世界的問題，透過專題過程中的實作，培養解決問題的能力，這裏不只是程式教學或教育訓練，學的不只是技能，而是
+                                Learn how to learn，以因應變化多端的軟體開發技能，及自我尋找解答的能力。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12 col-xl-6">
+                            <div class="pic">
+                                <img src="https://picsum.photos/300/300/?random=1">
+                            </div>
+                            <h2>就業銜接</h2>
+                        </div>
+                        <div class="col-12 col-xl-6">
+                            <h2>真正企業職場所需技能
+                                (Career Readiness)</h2>
+                            <p>除了透過打造專題作品過程，學到了技術及硬技能外，不同於一般的軟體培訓，我們更加入了簡報技巧、履歷及面試準備、以及真正軟體開發的團隊溝通及運作，這些軟實力 (Soft-Skill)
+                                的培養，讓同學能提早做好準備，在職場上成為一位專業的軟體工程師!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12 col-xl-6">
+                            <div class="pic">
+                                <img src="https://picsum.photos/300/300/?random=1">
+                            </div>
+                            <h2>連結及影響力</h2>
+                        </div>
+                        <div class="col-12 col-xl-6">
+                            <h2>企業導師的連結
+                                (Mentor Network)</h2>
+                            <p>每一位在軟體開發上有實務經驗的企業導師，他們是各大企業的主管、資深軟體工程師或 CTO，其人際連結及資源將帶給同學更多更好的就業機會，你將比別人站得更高，看得更遠!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner">
+        <h1>18 - 24週的實作及作品開發 - 從訓練、就業、到企業連結</h1>
+    </div>
+
+    <div class="schedule">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-xl-3">
+                    <h4>第 1 - 4 個月</h4>
+                    <div class="pic">
+                        <img src="https://picsum.photos/200/200/?random=1">
+                    </div>
+                    <h2>程式基礎教學</h2>
+                    <ul>
+                        <li>業界實戰講師</li>
+                        <li>企業主管/創業家/CTO 演講</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-xl-3">
+                    <h4>第 5 - 6 個月</h4>
+                    <div class="pic">
+                        <img src="https://picsum.photos/200/200/?random=1">
+                    </div>
+                    <h2>作品導向實作</h2>
+                    <ul>
+                        <li>Web / App 作品開發 - 企業導師指導</li>
+                        <li>不只是 Demo - 真實可運作成果</li>
+                        <li>團隊開發 - 真實軟體開發團隊的運作及分工 (Agile 敏捷, kanban 看板, CI 自動化建置 ...)</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-xl-3">
+                    <h4>第 6 - 7 月</h4>
+                    <div class="pic">
+                        <img src="https://picsum.photos/200/200/?random=1">
+                    </div>
+                    <h2>作品發表</h2>
+                    <ul>
+                        <li>簡報及溝通技巧</li>
+                        <li>作品及程式碼講解</li>
+                        <li>個人履歷準備 – Github, codepen …</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-xl-3">
+                    <h4>未來及展望</h4>
+                    <div class="pic">
+                        <img src="https://picsum.photos/200/200/?random=1">
+                    </div>
+                    <h2>就業及企業導師諮詢</h2>
+                    <ul>
+                        <li>就業媒合或未來職涯諮詢</li>
+                        <li>企業導師 -人際連結及資源</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner">
+        <h1>在課程及作品實作中，將採用這些工具 - 熟悉實務上軟體開發團隊的運作、分工及真實專案的流程 </h1>
+    </div>
+
+    <div class="tools">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-xl-3">
+                    <div class="pic1">
+                        <img src="https://picsum.photos/200/200/?random=1">
+                    </div>
+                    <div class="pic2">
+                        <img src="https://picsum.photos/200/200/?random=1">
+                    </div>
+                    <h2>版本控管及程式碼管理</h2>
+                    <ul>
+                        <li>學員之練習及作品之程式碼，皆採用主流的 git 當版本控管，熟悉版控的各種操作及實務專案運用; 課程中公開之練習程式碼，提交至 GitHub 上，其它學員可參考或供講師 Code Review 檢閱，並熟悉 Open Source 生態及工具</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-xl-3">
+                    <div class="pic1">
+                        <img src="https://picsum.photos/200/200/?random=1">
+                    </div>
+                    <div class="pic2">
+                        <img src="https://picsum.photos/200/200/?random=1">
+                    </div>
+                    <h2>作品開發及團隊管理</h2>
+                    <ul>
+                        <li>除了使用 GitHub 外，專題開發階段也將使用 Microsoft Azure DevOps Services (原名Visual Studio Team Services) 進行團隊開發、包括程式碼管理、工作項目追蹤、自動化建置等，熟悉一個軟體開發專案之流程、分工及日常工作。</li>
+                        <li>也可透過目前許多開發團隊常用的專案管理及看板工具 - Trello，進行工作分派、追蹤、或整個班的工作事項管理</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-xl-3">
+                    <div class="pic1">
+                        <img src="https://picsum.photos/200/200/?random=1">
+                    </div>
+                    <div class="pic2">
+                        <img src="https://picsum.photos/200/200/?random=1">
+                    </div>
+                    <h2>雲端平台及服務</h2>
+                    <ul>
+                        <li>雲端平台的使用已逐漸成為一個成熟軟體開發團隊之基礎，並讓開發、測試、佈署工作更加的便利及自動化。因此學員將使用 Microsoft Azure 當成作品及專案應用系統執行的雲端平台，包括 Azure App Service 建立網站服務、Azure SQL Database 建立資料庫服務</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-xl-3">
+                    <div class="pic1">
+                        <img src="https://picsum.photos/200/200/?random=1">
+                    </div>
+                    <div class="pic2">
+                        <img src="https://picsum.photos/200/200/?random=1">
+                    </div>
+                    <h2>團隊溝通協作及通知</h2>
+                    <ul>
+                        <li>課程過程中的線上討論、遠端溝通、或技術分享，將可透過 Microsoft Teams 或Slack 工具。另外練習的程式碼提交至 GitHub、或是 Trello 上的工作狀態更新，或是 Azure DevOps 上自動化建置的狀態，皆可發通知至 Microsoft Teams 或 Slack，透過自動化提升工作效率，並熟悉一個軟體開發團隊的協同合作</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner">
+        <h1>在課程及作品實作中，將採用這些工具 - 熟悉實務上軟體開發團隊的運作、分工及真實專案的流程 </h1>
+    </div>
+
+    <div class="tools">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-xl-3">
+                    <div class="pic">
+                        <img src="https://picsum.photos/200/200/?random=2">
+                    </div>
+                </div>
+                <div class="col-12 col-xl-3">
+                    <div class="pic">
+                        <img src="https://picsum.photos/200/200/?random=3">
+                    </div>
+                </div>
+                <div class="col-12 col-xl-3">
+                    <div class="pic">
+                        <img src="https://picsum.photos/200/200/?random=1">
+                    </div>
+                </div>
+                <div class="col-12 col-xl-3">
+                    <div class="pic">
+                        <img src="https://picsum.photos/200/200/?random=1">
+                    </div>
+                </div>
+                <div class="col-12 col-xl-3">
+                    <div class="pic">
+                        <img src="https://picsum.photos/200/200/?random=1">
+                    </div>
+                </div>
+                <div class="col-12 col-xl-3">
+                    <div class="pic">
+                        <img src="https://picsum.photos/200/200/?random=1">
+                    </div>
+                </div>
+                <div class="col-12 col-xl-3">
+                    <div class="pic">
+                        <img src="https://picsum.photos/200/200/?random=1">
+                    </div>
+                </div>
+                <div class="col-12 col-xl-3">
+                    <div class="pic">
+                        <img src="https://picsum.photos/200/200/?random=1">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-xl-6">
+                    <h2>合作及接洽</h2>
+                    <h4>有興趣軟體工程師徵才、或成為我們的講師或擔任指導學生的企業導師 (Inspire Mentor)，請與我們連絡</h4>
+                    <p>email: contact@build-school.com 電話: 02-66057606
+
+                        ​台北: 台北市忠孝東路三段96號11F-1 (台北科大對面/忠孝新生站3號出口)
+
+                        新竹: 中華大學行政大樓圖資處</p>
+                    <div class="icon-group">
+                        <img src="https://static.wixstatic.com/media/e316f544f9094143b9eac01f1f19e697.png/v1/fill/w_28,h_28,al_c,q_85,usm_0.66_1.00_0.01/e316f544f9094143b9eac01f1f19e697.webp"
+                            alt="">
+                        <img src="https://static.wixstatic.com/media/a1b09fe8b7f04378a9fe076748ad4a6a.png/v1/fill/w_28,h_28,al_c,q_85,usm_0.66_1.00_0.01/a1b09fe8b7f04378a9fe076748ad4a6a.webp"
+                            alt="">
+                    </div>
+                </div>
+                <div class="col-12 col-xl-6">
+                    隱私權宣告
+                    © 2020 by Build School
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+
+            loop: true,
+            autoplay: true,
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</body>
+
+</html>
