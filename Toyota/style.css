@@ -62,48 +62,32 @@
     color: #fff;
 }
 
+/*------------------------------------------------------------------------------------------------------*/
 .advantage {
-    position: relative;
-    width: 695px;
-    height: 430px;
-    margin: 0px 150px 250px;
-    padding: 100px 0;
-}
-
-.reverse {
-    margin: 0px 60px 250px;
-}
-
-.advantage img {
-    width: 100%;
+    margin-bottom: 100px;
 }
 
 .advantage .info {
-    position: absolute;
-    left: -150px;
-    top: -20px;
     width: 355px;
+    position: relative;
+    z-index: 1;
 }
 
-.reverse .info {
-    left: 580px;
+.advantage:nth-child(odd) .info  {
+    margin-left: auto;
+    text-align: right;
 }
 
 .advantage .info h2 {
     background-color: #bb0404;
-    height: 120px;
     font-size: 50px;
     color: #fff;
-    text-align: center;
-    font-weight: 300;
 }
 
 .advantage .info h2 span {
-    writing-mode: vertical-lr;
-    vertical-align: middle;
-    max-height: 118px;
-    line-height: 1;
-    font-size: 112px;
+    transform: rotate(90deg);
+    display: inline-block;
+    font-size: 96px;
     font-weight: 300;
 }
 
@@ -113,6 +97,7 @@
     font-size: 22px;
     color: #fff;
     font-weight: 400;
+    position: absolute;
 }
 
 .advantage .info h4 span {
@@ -121,60 +106,69 @@
     font-weight: 700;
 }
 
-.advantage:after {
-    content: "";
+.advantage .pic {
+    margin-left: 180px;
+    position: relative;
+}
+
+.advantage:nth-child(odd) .pic {
+    margin-left: 20px;
+}
+
+.advantage .pic img {
+    vertical-align: middle;
+}
+
+.advantage .pic .video-btn-icon {
+    position: absolute;
     display: block;
-    position: relative;
-    background-color: #eee2e2;
-    width: 440px;
-    height: 290px;
-    top: -550px;
-    left: 320px;
-    z-index: -1;
-}
-
-.reverse:after {
-    width: 510px;
-    height: 410px;
-    left: 270px;
-}
-
-.advantage .video-btn-icon {
-    position: relative;
-    height: 45px;
-    width: 60px;
+    height: 30px;
+    width: 30px;
     background-color: #bb0404;
     color: #fff;
-    line-height: 2;
     text-align: center;
     font-size: 22px;
     cursor: pointer;
     padding: 8px 20px;
-    bottom: 210px;
-    left: 650px;
+    top: 0;
+    right: 70px;
+    bottom: 0;
+    margin: auto;
 }
 
-.reverse .video-btn-icon{
+.advantage:nth-child(odd) .pic .video-btn-icon {
     left: -15px;
+    right: auto;
 }
 
 .advantage .text-block {
-    position: absolute;
     width: 680px;
     background-color: #eeeeee;
-    z-index: 1;
+    margin-left: 20px;
     padding: 15px;
-    right: 90px;
-    top: 500px;
+    margin-top: -35px;
+    position: relative;
 }
 
-.reverse .text-block {
-    left: 230px;    
+.advantage:nth-child(odd) .text-block {
+    margin-left: auto;
 }
 
-.advantage .text-block h3 {
+.advantage .text-block h2 {
     color: #bb0404;
     margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.advantage .text-block h2:after {
+    content: "";
+    width: 20px;
+    height: 5px;
+    display: block;
+    background-color: #bb0404;
+    flex-grow: 1;
+    margin-left: 1em;
 }
 
 .advantage .text-block span {
@@ -184,9 +178,10 @@
     padding: 6px;
 }
 
-.advantage .text-block li {
+.advantage .text-block p {
     color: #8a7c7c;
-    line-height: 1.8;
+    line-height: 2;
     font-weight: 700;
-    margin-left: 25px;
+    text-indent: -15px;
+    padding-left: 25px;
 }
