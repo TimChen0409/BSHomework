@@ -17,7 +17,7 @@
     box-shadow: 0 2px 8px 0 #999595;
 }
 
-#toTop:hover{
+#toTop:hover {
     box-shadow: 0 4px 10px 0 #999595;
 }
 
@@ -25,7 +25,7 @@
     width: 100%;
 }
 
-#toChat{
+#toChat {
     position: fixed;
     bottom: 20px;
     left: 20px;
@@ -35,16 +35,16 @@
     z-index: 10;
     text-align: center;
     border-radius: 50px;
-    background: #008AFC;
+    background: #008afc;
     box-shadow: 0 2px 8px 0 #999595;
     color: #fff;
     line-height: 60px;
     font-size: 12px;
-    transition: .5s;
+    transition: 0.5s;
     opacity: 0;
 }
 
-#menu-control:checked~ #toChat{
+#menu-control:checked ~ #toChat {
     opacity: 0;
 }
 
@@ -147,8 +147,8 @@
 .banner .banner-title {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /* left: 50%;
+    transform: translate(-50%, -50%); */
     text-align: center;
     letter-spacing: 0.15em;
     color: #fff;
@@ -286,7 +286,7 @@ footer .text-area2 a {
 }
 
 @media screen and (max-width: 991px) {
-    #toChat{
+    #toChat {
         opacity: 1;
     }
 
@@ -316,8 +316,6 @@ footer .text-area2 a {
     #menu-control:checked ~ .main-header .hb {
         z-index: 999;
     }
-
-    
 
     .hb-btn span {
         width: 32px;
@@ -384,13 +382,13 @@ footer .text-area2 a {
     #menu-control:checked ~ .main-header .nav {
         right: 0;
     }
+
+    .banner .banner-title {
+        top: 25%;
+    }
 }
 
 @media screen and (min-width: 992px) {
-
-   
-
-
     .main-header .container {
         display: flex;
         justify-content: space-between;
@@ -423,5 +421,11 @@ footer .text-area2 a {
 
     .features-block .reverse {
         flex-direction: row-reverse;
+    }
+
+    .banner .banner-title {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }
