@@ -431,7 +431,9 @@ footer .text-area2 a {
         right: 0;
     }
 
-    
+    .swiper-slide .slide-bg{
+        height: 550px;
+    }
 }
 
 @media screen and (min-width: 992px) {
