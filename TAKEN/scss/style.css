@@ -4,6 +4,29 @@
   list-style: none;
 }
 
+#ScrolltoTop {
+  width: 42px;
+  height: 42px;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.1);
+  bottom: 25px;
+  right: 22px;
+  z-index: 10;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+@media screen and (min-width: 768px) {
+  #ScrolltoTop {
+    width: 63px;
+    height: 63px;
+  }
+}
+
+#ScrolltoTop img {
+  width: 100%;
+}
+
 #header {
   background: rgba(30, 30, 30, 0.9);
   font-size: 12px;
@@ -90,6 +113,17 @@
 .carousel-caption button {
   min-width: 140px;
   font-weight: 700;
+}
+
+.intro .info {
+  max-width: 300px;
+  margin: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .intro .info {
+    max-width: 600px;
+  }
 }
 
 .main_video iframe {
@@ -201,9 +235,24 @@
   line-height: 1.8;
 }
 
-.footer .text p img {
+.footer .text p a {
+  -webkit-transition: .3s;
+  transition: .3s;
+  color: #cac7c7;
+}
+
+.footer .text p a img {
   height: 24px;
   margin: 0 2px;
+  opacity: 1;
+}
+
+.footer .text p a:hover {
+  color: #fff !important;
+}
+
+.footer .text p a:hover img {
+  opacity: .5;
 }
 
 .footer a {
@@ -213,5 +262,15 @@
 .bottom-menu {
   background-color: #1e1e1e;
   font-size: 13px;
+}
+
+.bottom-menu a {
+  text-decoration: none;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.bottom-menu a:hover {
+  color: #fff !important;
 }
 /*# sourceMappingURL=style.css.map */
