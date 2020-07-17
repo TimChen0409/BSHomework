@@ -147,7 +147,7 @@
 
 .pdList .item .description {
   opacity: 0;
-  top: 50%;
+  top: 40%;
   left: 0;
   width: 100%;
   line-height: 1.8;
@@ -155,9 +155,14 @@
   transition: 0.3s;
 }
 
+.pdList .item .description h6 {
+  font-size: 16px;
+}
+
 .pdList .item .description p {
   margin: 0;
   font-weight: bold;
+  font-size: 14px;
 }
 
 .pdList .item:hover .description {

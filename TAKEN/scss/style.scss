@@ -121,14 +121,18 @@
         margin-bottom: 15px;
         .description {
             opacity: 0;
-            top: 50%;
+            top: 40%;
             left: 0;
             width: 100%;
             line-height: 1.8;
             transition: 0.3s;
+            h6{
+                font-size: 16px;
+            }
             p {
                 margin: 0;
                 font-weight: bold;
+                font-size: 14px;
             }
         }
         &:hover .description {
