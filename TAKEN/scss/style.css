@@ -147,7 +147,7 @@
 
 .pdList .item .description {
   opacity: 0;
-  top: 40%;
+  top: 20%;
   left: 0;
   width: 100%;
   line-height: 1.8;
@@ -155,14 +155,32 @@
   transition: 0.3s;
 }
 
+@media screen and (min-width: 768px) {
+  .pdList .item .description {
+    top: 30%;
+  }
+}
+
 .pdList .item .description h6 {
-  font-size: 16px;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .pdList .item .description h6 {
+    font-size: 16px;
+  }
 }
 
 .pdList .item .description p {
   margin: 0;
   font-weight: bold;
   font-size: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .pdList .item .description p {
+    font-size: 14px;
+  }
 }
 
 .pdList .item:hover .description {
@@ -185,19 +203,38 @@
   background-attachment: fixed;
   background-position: 50% 50%;
   background-size: cover;
-  height: 500px;
+  height: 250px;
+}
+
+@media screen and (min-width: 768px) {
+  .banner-area {
+    height: 500px;
+  }
 }
 
 .banner-area h2 {
-  margin-top: 100px;
-  font-size: 120px;
+  margin-top: 50px;
+  font-size: 44px;
   color: #fff;
   line-height: 1.8;
 }
 
+@media screen and (min-width: 768px) {
+  .banner-area h2 {
+    margin-top: 100px;
+    font-size: 120px;
+  }
+}
+
 .banner-area p {
-  font-size: 45px;
+  font-size: 20px;
   color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .banner-area p {
+    font-size: 45px;
+  }
 }
 
 .newPdList .item {
@@ -241,8 +278,8 @@
 }
 
 .footer .text p a {
-  -webkit-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   color: #cac7c7;
 }
 
@@ -257,7 +294,7 @@
 }
 
 .footer .text p a:hover img {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .footer a {
@@ -271,8 +308,8 @@
 
 .bottom-menu a {
   text-decoration: none;
-  -webkit-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .bottom-menu a:hover {
