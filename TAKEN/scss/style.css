@@ -147,7 +147,7 @@
 
 .pdList .item .description {
   opacity: 0;
-  top: 20%;
+  top: 15%;
   left: 0;
   width: 100%;
   line-height: 1.8;
@@ -174,7 +174,7 @@
 .pdList .item .description p {
   margin: 0;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 @media screen and (min-width: 768px) {
