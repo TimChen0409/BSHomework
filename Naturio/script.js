@@ -1,21 +1,29 @@
 var _loadingExcuted = false;
-
+var timeoutId1;
+var timeoutId2;
+var timeoutId3;
 $(function () {
 
-    setTimeout(() => {
+    timeoutId1 = setTimeout(() => {
         $('#loading').addClass('animate__animated animate__fadeOut');
         _loadingExcuted = true;
         if (_loadingExcuted) {
-            setTimeout(() => {
+            timeoutId2 = setTimeout(() => {
                 $('#loading').hide();
             }, 500);
+            clearTimeout(timeoutId2);
         }
+        clearTimeout(timeoutId1);
     }, 1000);
 
-    setTimeout(() => {
+    timeoutId3 = setTimeout(() => {
         $('.popup').show();
         showPopup();
+        clearTimeout(timeoutId3);
     }, 9000);
+
+ 
+
 
     $(window).scroll(() => {
         if ($(this).scrollTop() > 150) {
