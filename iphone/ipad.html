@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>10.2 吋 iPad 與 Apple Pencil 和聰穎鍵盤相容，有三種外觀可供選擇，並提供免額外付費的鐫刻服務。立即在 apple.com 購買。</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        .accordion {
+            background-color: #fff;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            font-weight: bold;
+            width: 100%;
+            border: none;
+            text-align: left;
+            font-size: 15px;
+            transition: 0.4s;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .panel {
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .panel .note {
+            padding-left: 18px;
+        }
+
+        .item {
+            border-radius: 4px;
+            border: 1px solid #d6d6d6;
+        }
+
+        .item:hover {
+            border-color: #696969;
+        }
+
+        input[type="radio"]:checked+label {
+            border-color: #1c3fdb;
+            box-shadow: 0 0 5px #78c8e2;
+        }
+
+        .item label {
+            box-sizing: border-box;
+        }
+
+        .price-area i {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-6">
+                <div id="productImg" class="col-12">
+                    <img src="img/silver.png" class="w-100">
+                </div>
+                <div class="col-12 d-flex text-center mt-3">
+                    <div class="col-6">
+                        <p><i class="fas fa-box"></i></p>
+                        <p>免額外付費的運送服務</p>
+                    </div>
+                    <div class="col-6">
+                        <p><i class="fas fa-box-open"></i></p>
+                        <p>免額外付費輕鬆退貨</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <h2>購買 iPad</h2>
+                <p>購買 iPad 可享免額外付費運送服務。</p>
+
+                <button class="accordion" id="colorTitle">太空灰色</button>
+                <div class="panel d-flex my-3 flex-wrap">
+                    <div class="col-12">
+                        <h6>外觀</h6>
+                    </div>
+
+                </div>
+
+                <button class="accordion" id="storageTitle">32GB</button>
+                <div class="panel d-flex my-3 flex-wrap">
+                    <div class="col-12">
+                        <h6>儲存裝置</h6>
+                    </div>
+                    <div class="col-12 d-flex storage-area">
+
+                    </div>
+                    <a href="#!" class="note"><small>你需要多少儲存空間?</small></a>
+                </div>
+
+                <button class="accordion" id="connectionTitle">Wi-Fi</button>
+                <div class="panel d-flex my-3 flex-wrap">
+                    <div class="col-12">
+                        <h6>連線能力</h6>
+                    </div>
+                    <div class="col-12 d-flex connection-area">
+
+                    </div>
+                    <a href="#!" class="note"><small>你需要 Wi-Fi 或 Wi-Fi + 行動網路機型？</small></a>
+                </div>
+
+                <div class="price-area bg-light">
+                    <h1 id="price">NT$10,900</h1>
+                    <p><small>含營業稅和其他法定稅費：約 NT$<span id="tex">544</span>。*</small></p>
+                    <a href="#!"><small><i class="far fa-dot-circle"></i> 最低月付 NT$<span id="monthPay">908</span>，12
+                            個月，0%
+                            利率</small></a>
+
+                    <div class="row my-4">
+                        <div class="col-10"><button class="btn btn-primary px-5 mr-3 w-100">繼續</button></div>
+                        <div class="d-block col-2 text-primary text-center h3" data-toggle="tooltip"
+                            data-placement="top" title="加入喜好項目">
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-center"><small>購買時取得協助。 <a href="#">立即對談</a> 或致電 0800-020-021</small></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+        //手風琴功能
+        var acc = document.querySelectorAll(".accordion");
+        for (let i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                let panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + 20 + "px";
+                }
+            });
+        }
+
+
+        //Data structure
+        var products = {
+            iphone: {
+
+            },
+            ipad: {
+                color: [{
+                    colorName: "太空灰色",
+                    colorEnName: "gray",
+                    img: "img/colorgray.png"
+                },
+                {
+                    colorName: "銀色",
+                    colorEnName: "silver",
+                    img: "img/colorsilver.png"
+                },
+                {
+                    colorName: "金色",
+                    colorEnName: "gold",
+                    img: "img/colorgold.png"
+                }],
+                storage: [{
+                    size: "32GB",
+                    description: "32<small>GB<sup>1</sup></small>",
+                    lowestPrice: "10,900"
+                }, {
+                    size: "128GB",
+                    description: "128<small>GB<sup>1</sup></small>",
+                    lowestPrice: "13,900"
+                }],
+                connection: [{
+                    title: "WiFi",
+                    value: "WiFi",
+                    lowestPrice: "10,900"
+                }, {
+                    title: "WiFi + 行動網路",
+                    value: "WiFiCell",
+                    lowestPrice: "15,400"
+                }],
+                productPriceAry: [{
+                    title: "32GB,WiFi",
+                    price: "10,900",
+                    tex: "544",
+                    monthPay: "908"
+                },
+                {
+                    title: "128GB,WiFi",
+                    price: "13,900",
+                    tex: "687",
+                    monthPay: "1,158"
+                }, {
+                    title: "32GB,WiFiCell",
+                    price: "15,400",
+                    tex: "758",
+                    monthPay: "1,283"
+                }, {
+                    title: "128GB,WiFiCell",
+                    price: "18,400",
+                    tex: "901",
+                    monthPay: "1,533"
+                }]
+            }
+        }
+
+
+        let colorOptions = document.getElementsByName('color');
+        let storageOptions = document.getElementsByName('storage');
+        let connectOptions = document.getElementsByName('connection');
+        let productImg = document.querySelector('#productImg');
+        let price = document.querySelector('#price');
+        let tex = document.querySelector('#tex');
+        let monthPay = document.querySelector('#monthPay');
+
+        init();
+
+        function init() {
+            renderColorOption();
+            renderStorageOption();
+            renderConnectionOption();
+            firstchecked();
+        }
+
+        function renderColorOption() {
+            let colorPanel = document.querySelector('#colorTitle + .panel');
+            let str = '';
+            products.ipad.color.forEach(x => {
+
+                str += `<div class="col-6">
+                        <input type="radio" name="color" id="${x.colorEnName}" value="${x.colorEnName}" class="d-none">
+                            <label class="item d-block color-item m-1" for="${x.colorEnName}">
+                                <div class="content text-center py-2">
+                                    <img src="${x.img}" class="w-25">
+                                    <h4 class="h6">${x.colorName}</h4>
+                                </div>
+                            </label>
+                    </div>`
+            })
+            colorPanel.insertAdjacentHTML('beforeend', str);
+        }
+
+        function renderStorageOption() {
+            let storagePanel = document.querySelector('#storageTitle + .panel .storage-area');
+            let str = '';
+            products.ipad.storage.forEach(x => {
+
+                str += `<div class="col-6">
+                            <input type="radio" name="storage" id="${x.size}" value="${x.size}" class="d-none">
+                            <label class="item d-block storage-item m-1" for="${x.size}">
+                                <div class="content text-center py-2">
+                                    <h4>${x.description}</h4>
+                                    <p><small>NT$${x.lowestPrice}</small></p>
+                                </div>
+                            </label>
+                        </div>`
+            })
+            storagePanel.innerHTML = str;
+        }
+
+        function renderConnectionOption() {
+            let connectionPanel = document.querySelector('#connectionTitle + .panel .connection-area');
+            let str = '';
+            products.ipad.connection.forEach(x => {
+
+                str += `<div class="col-6">
+                            <input type="radio" name="connection" id="${x.value}" value="${x.value}" class="d-none">
+                            <label class="item d-block connection-item m-1" for="${x.value}">
+                                <div class="content text-center py-2">
+                                    <h4>${x.title}</h4>
+                                    <p><small>NT$13,900</small></p>
+                                </div>
+                            </label>
+                        </div>`
+            })
+            connectionPanel.innerHTML = str;
+        }
+
+        function firstchecked() {
+            colorOptions[0].checked = true;
+            storageOptions[0].checked = true;
+            connectOptions[0].checked = true;
+
+        }
+
+        colorOptions.forEach(x => {
+            x.addEventListener('click', ChangeImg);
+        })
+        storageOptions.forEach(x => {
+            x.addEventListener('click', changePrice);
+        })
+
+        connectOptions.forEach(x => {
+            x.addEventListener('click', changePrice);
+            x.addEventListener('click', ChangeImg);
+        })
+
+        function changePrice() {
+            let checkStorage;
+            let checkConnection;
+
+            storageOptions.forEach(x => {
+                if (x.checked)
+                    checkStorage = (x.value).toString();
+            });
+            connectOptions.forEach(y => {
+                if (y.checked)
+                    checkConnection = (y.value).toString();
+            });
+            var itemPrice = products.ipad.productPriceAry.filter(x => {
+                return x.title == checkStorage + ',' + checkConnection;
+            })
+
+            price.textContent = `NT$${itemPrice[0].price}`;
+            tex.textContent = itemPrice[0].tex;
+            monthPay.textContent = itemPrice[0].monthPay;
+        }
+
+        function ChangeImg() {
+            let checkColor;
+            let checkConnection;
+            colorOptions.forEach(x => {
+                if (x.checked)
+                    checkColor = (x.value).toString();
+            });
+            connectOptions.forEach(y => {
+                if (y.checked)
+                    checkConnection = (y.value).toString();
+            });
+
+            let imgName = checkColor;
+            if (checkConnection == "WiFiCell")
+                imgName += '2';
+            productImg.innerHTML = `<img src="img/${imgName}.png" class="w-100">`
+        }
+
+        function changeColorTitle() {
+            let colorTitle = document.querySelector('#colorTitle');
+
+        }
+
+    </script>
+</body>
+
+</html>
