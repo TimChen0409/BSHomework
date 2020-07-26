@@ -39,7 +39,7 @@
         <div class="row justify-content-center">
             <div class="col-6 d-flex flex-wrap text-right text-warning">
                 <div class="col-12 my-1" id="recordBlock">
-                    <button class="btn btn-dark btn-sm text-warning border border-warning" id="recordList"><i
+                    <button class="btn btn-dark btn-sm text-warning border border-warning" data-toggle="modal" data-target="#exampleModalCenter"><i
                             class="fas fa-history"></i></button>
                     <h6 class="my-2" id="currentFormula"></h6>
                 </div>
@@ -156,6 +156,31 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Record List</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h6>尚無歷程記錄</h6>
+                    <ul id="recordList" class="list-group">
+
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" id="deleteBtn"><i class="fas fa-trash-alt"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -167,120 +192,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+    <script src="main.js"></script>
 
 
-
-    <script>
-        let operators = document.querySelectorAll(".operator");
-        let numbers = document.querySelectorAll(".number");
-        let currentFormula = document.querySelector("#currentFormula");
-        let currentValue = document.querySelector("#currentValue");
-        console.log(operators, numbers);
-        operators.forEach(op => op.addEventListener('click', operate));
-        numbers.forEach(num => num.addEventListener('click', inputNum));
-
-
-        function operate() {
-            let formula = currentFormula.textContent;
-            let value = currentValue.textContent;
-            if (value.length > 0) {
-                switch (this.id) {
-                    case "%":
-                        value = operatePercentage(value);
-                        break;
-                    case "ce":
-                        value = '0';
-                        break;
-                    case "c":
-                        formula = '';
-                        value = '0';
-                        break;
-                    case "backspace":
-                        value = RemoveNumberFommat(value);
-                        value = operateBackspace(value);
-                        break;
-                    case "fraction":
-                        value = operateFraction(value);
-                        break;
-                    case "power":
-                        value = Math.pow(value, 2);
-                        break;
-                    case "sqrt":
-                        value = Math.sqrt(value);
-                        break;
-                    case "plusOrMinus":
-                        value = operateToAddPlusOrMinus(value);
-                        break;
-                    case ".":
-                        if (!value.includes('.'))
-                            value += '.';
-                        break;
-                    case "=":
-                        eval(value);
-                        break;
-                    default:
-                        break;
-                }
-
-            } else {
-                value = '';
-            }
-
-            currentValue.textContent = value;
-
-        }
-
-
-        function operatePercentage(value) {
-            return value * 0.01;
-        }
-
-        function operateBackspace(value) {
-            if (value.length > 1) {
-                return value.substring(0, value.length - 1);
-            } else {
-                return 0;
-            }
-        }
-
-        function operateToAddPlusOrMinus(value) {
-            if (value == '0') {
-                return value;
-            }
-            
-            if (value.includes('-')) {
-                return value.replace('-', '');
-            }
-            else {
-                return '-' + value;
-            }
-        }
-
-        function operateFraction(value) {
-            return Number(1 / value);
-        }
-
-        function inputNum() {
-            let currentOutput = RemoveNumberFommat(currentValue.textContent);
-            let output;
-            if (currentOutput[0] == '0' && !currentOutput.includes('.')) {
-                output = this.id;
-            } else {
-                output = currentOutput + this.id;
-            }
-            currentValue.textContent = getNumberFommat(output);
-        }
-
-        //add dot per 3digits
-        function getNumberFommat(num) {
-            let reg = /(?=(\B)(\d{3})+$)/g;
-            return num.replace(reg, ",");
-        }
-        //remove dot
-        function RemoveNumberFommat(num) {
-            return num.replace(/,/g, '');
-        }
-    </script>
 </body>
 
 </html>
