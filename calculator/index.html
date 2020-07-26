@@ -44,7 +44,7 @@
                     <h6 class="my-2" id="currentFormula"></h6>
                 </div>
                 <div class="col-12 my-1" id="CurrentValueBlock">
-                    <h3 id="currentValue"></h3>
+                    <h3 id="currentValue">0</h3>
                 </div>
             </div>
         </div>
@@ -139,7 +139,7 @@
                         id="0">0</button>
                 </div>
                 <div class="col-3 my-1">
-                    <button class="btn btn-outline-warning btn-block border border-warning py-3 number"
+                    <button class="btn btn-outline-warning btn-block border border-warning py-3 operator"
                         id=".">.</button>
                 </div>
                 <div class="col-3 my-1">
@@ -175,40 +175,59 @@
         let numbers = document.querySelectorAll(".number");
         let currentFormula = document.querySelector("#currentFormula");
         let currentValue = document.querySelector("#currentValue");
-
+        console.log(operators, numbers);
         operators.forEach(op => op.addEventListener('click', operate));
         numbers.forEach(num => num.addEventListener('click', inputNum));
 
 
         function operate() {
-            let formula = currentFormula.innerHTML;
-            let value = currentValue.innerHTML;
-            switch (this.id) {
-                case "%":
-                    value = operatePercentage(value);
-                    break;
-                case "ce":
-                    value = '';
-                    break;
-                case "c":
-                    formula = '';
-                    value = '';
-                    break;
-                case "backspace":
-                    value = RemoveNumberFommat(value);
-                    value = operateBackspace(value);
-                    break;
-                case "fraction":
-                    value = RemoveNumberFommat(value);
-                    value = operateBackspace(value);
-                    break;
+            let formula = currentFormula.textContent;
+            let value = currentValue.textContent;
+            if (value.length > 0) {
+                switch (this.id) {
+                    case "%":
+                        value = operatePercentage(value);
+                        break;
+                    case "ce":
+                        value = '0';
+                        break;
+                    case "c":
+                        formula = '';
+                        value = '0';
+                        break;
+                    case "backspace":
+                        value = RemoveNumberFommat(value);
+                        value = operateBackspace(value);
+                        break;
+                    case "fraction":
+                        value = operateFraction(value);
+                        break;
+                    case "power":
+                        value = Math.pow(value, 2);
+                        break;
+                    case "sqrt":
+                        value = Math.sqrt(value);
+                        break;
+                    case "plusOrMinus":
+                        value = operateToAddPlusOrMinus(value);
+                        break;
+                    case ".":
+                        if (!value.includes('.'))
+                            value += '.';
+                        break;
+                    case "=":
+                        eval(value);
+                        break;
+                    default:
+                        break;
+                }
 
-
-                default:
-                    break;
+            } else {
+                value = '';
             }
 
-            currentValue.innerHTML = value;
+            currentValue.textContent = value;
+
         }
 
 
@@ -217,22 +236,39 @@
         }
 
         function operateBackspace(value) {
-            if (value.length > 0)
+            if (value.length > 1) {
                 return value.substring(0, value.length - 1);
+            } else {
+                return 0;
+            }
+        }
+
+        function operateToAddPlusOrMinus(value) {
+            if (value == '0') {
+                return value;
+            }
+            
+            if (value.includes('-')) {
+                return value.replace('-', '');
+            }
             else {
-                return '';
+                return '-' + value;
             }
         }
 
         function operateFraction(value) {
-
+            return Number(1 / value);
         }
 
         function inputNum() {
-            let currentOutput = RemoveNumberFommat(currentValue.innerHTML);//remove dot
-            let output = currentOutput + this.id;
-            currentValue.innerHTML = getNumberFommat(output);
-
+            let currentOutput = RemoveNumberFommat(currentValue.textContent);
+            let output;
+            if (currentOutput[0] == '0' && !currentOutput.includes('.')) {
+                output = this.id;
+            } else {
+                output = currentOutput + this.id;
+            }
+            currentValue.textContent = getNumberFommat(output);
         }
 
         //add dot per 3digits
@@ -240,7 +276,7 @@
             let reg = /(?=(\B)(\d{3})+$)/g;
             return num.replace(reg, ",");
         }
-
+        //remove dot
         function RemoveNumberFommat(num) {
             return num.replace(/,/g, '');
         }
