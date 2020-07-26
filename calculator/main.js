@@ -1,9 +1,9 @@
-const operators = document.querySelectorAll(".operator");
-const numbers = document.querySelectorAll(".number");
-const currentFormula = document.querySelector("#currentFormula");
-const recordList = document.querySelector("#recordList");
-const recordListTitle =document.querySelector(".modal-body h6");
-const deleteBtn = document.querySelector("#deleteBtn");
+let operators = document.querySelectorAll(".operator");
+let numbers = document.querySelectorAll(".number");
+let currentFormula = document.querySelector("#currentFormula");
+let recordList = document.querySelector("#recordList");
+let recordListTitle = document.querySelector(".modal-body h6");
+let deleteBtn = document.querySelector("#deleteBtn");
 let currentValue = document.querySelector("#currentValue");
 let firstValue = '';//儲存第一次被(加、減、乘、除)數
 
@@ -15,16 +15,16 @@ deleteBtn.addEventListener('click', deleteRecord);
 function operate() {
     let formula = currentFormula.textContent;
     let value = currentValue.textContent;
-    if (value.length > 0) {
+    if (value.length > 0 || formula.length > 0) {
         switch (this.id) {
             case "%":
                 value = operatePercentage(value);
                 break;
             case "ce":
-                value = operateCurrentEmpty(value);
+                value = operateCurrentEmpty();
                 break;
             case "c":
-                value = operateClearAll(value);
+                value = operateClearAll();
                 break;
             case "backspace":
                 value = removeNumberFommat(value);
@@ -71,7 +71,7 @@ function operatePercentage(value) {
     return value * 0.01;
 }
 
-function operateCurrentEmpty(value) {
+function operateCurrentEmpty() {
     if (firstValue.length > 0) {
         firstValue = '';
         currentFormula.textContent = '';
@@ -79,7 +79,8 @@ function operateCurrentEmpty(value) {
     return '0';
 }
 
-function operateClearAll(value) {
+function operateClearAll() {
+    console.log(123);
     operators.forEach(op => op.disabled = false);
     numbers.forEach(num => num.disabled = false);
     currentFormula.textContent = '';
@@ -120,13 +121,25 @@ function operateFraction(value) {
 }
 
 function operateArithmetic(value, operator) {
-    currentFormula.textContent = removeNumberFommat(value) + operator;
-    return '';
+    let formulaAry = currentFormula.textContent.split('').filter(x => { return isNaN(x) });
+    if (formulaAry.length == 0) {
+        currentFormula.textContent = removeNumberFommat(value) + operator;
+        return '0';
+    }
+
 }
 
 function operateEqual(value, formula) {
     if (formula != '') {
         let currentOperator = formula.split('').reverse().find(x => { return isNaN(x) && x != '=' });//由後往前找
+
+        if (currentOperator == '/' && removeNumberFommat(value) == '0') {
+            operators.forEach(op => op.disabled = true);
+            numbers.forEach(num => num.disabled = true);
+            document.querySelector("#c").disabled = false;
+            return '無法除以零';
+        }
+
         if (!formula.includes('=')) {
             firstValue = removeNumberFommat(value);
             currentFormula.textContent = formula + removeNumberFommat(value) + '=';
@@ -156,20 +169,21 @@ function deleteRecord() {
 
 
 function inputNum() {
+
     if (currentFormula.textContent.includes('=')) {
         currentFormula.textContent = '';
+        currentValue.textContent = '';
     }
+    let oldValue = removeNumberFommat(currentValue.textContent);
+    let result;
 
-    let currentOutput = removeNumberFommat(currentValue.textContent);
-    let output;
-
-    if (currentOutput[0] == '0' && !currentOutput.includes('.')) {
-        output = this.id;
+    if (oldValue[0] == '0' && !oldValue.includes('.')) {
+        result = this.id;
     } else {
-        output = currentOutput + this.id;
+        result = oldValue + this.id;
     }
 
-    currentValue.textContent = getNumberFommat(output);
+    currentValue.textContent = getNumberFommat(result);
 }
 
 //add dot per 3digits
