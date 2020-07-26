@@ -1,5 +1,5 @@
 # 1A2B
-  [Demo](https://timchen0409.github.io/1A2B/)
+  [Demo](https://timchen0409.github.io/BSHomework/1A2B/index.html)
 
 ---
 Use the Fundamentals of JavaScript to build 1A2B Game
