@@ -5,7 +5,6 @@ $(function () {
 var acc = document.querySelectorAll(".accordion");
 for (let i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function () {
-        this.classList.toggle("active");
         let panel = this.nextElementSibling;
         if (panel.style.maxHeight) {
             panel.style.maxHeight = null;
@@ -200,6 +199,7 @@ function changePrice() {
     price.textContent = `NT$${itemPrice[0].price}`;
     tex.textContent = itemPrice[0].tex;
     monthPay.textContent = itemPrice[0].monthPay;
+    closeAllOption();
 }
 
 function ChangeImg() {
@@ -227,6 +227,7 @@ function ChangeImg() {
     if (checkConnection == "WiFiCell")
         imgName += '2';
     productImg.innerHTML = `<img src="img/${imgName}.png" class="w-100">`
+    closeAllOption();
 }
 
 function changeColorTitle(color) {
@@ -242,4 +243,11 @@ function changeStorageTitle(size) {
 function changeConnectionTitle(connection) {
     var filterAry = products.ipad.connection.filter(x => x.value == connection);
     return filterAry[0].title;
+}
+
+function closeAllOption() {
+    acc.forEach(x => {
+        let panel = x.nextElementSibling;
+        panel.style.maxHeight = null;
+    })
 }
