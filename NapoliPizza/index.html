@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>NapoliPizza</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
@@ -53,12 +53,12 @@
                     </div>
                     <hr>
                     <div class="mt-3">
-                        <h4 class="text-warning">餡料</h4>
-                        <p id="stuffing" class="h6 text-dark"></p>
-                        <h4 class="text-warning">美味說明</h4>
-                        <p id="description" class="h6 text-dark"></p>
-                        <h4 class="text-warning">價格</h4>
-                        <p id="price" class="h6 text-dark"></p>
+                        <h4 class="text-warning"><i class="fas fa-pepper-hot"></i> 餡料</h4>
+                        <p id="stuffing" class="h6 text-dark my-3"></p>
+                        <h4 class="text-warning"><i class="fas fa-comment"></i> 美味說明</h4>
+                        <p id="description" class="h6 text-dark my-3"></p>
+                        <h4 class="text-warning"><i class="fas fa-dollar-sign"></i> 價格</h4>
+                        <p id="price" class="h6 text-dark my-3"></p>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -100,7 +100,6 @@
         }
 
         function renderData(dataArray) {
-            console.log(dataArray);
             let card = $g('#cardPizza');
             dataArray.forEach(element => {
                 let cloneContent = card.content.cloneNode(true);
