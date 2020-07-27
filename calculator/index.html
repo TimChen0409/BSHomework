@@ -12,25 +12,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
+    <link rel="stylesheet" href="style.css">
     <title>Calculator</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            font-family: 'Noto Sans TC', sans-serif;
-        }
-
-        #recordBlock,
-        #CurrentValueBlock {
-            height: 60px;
-        }
-    </style>
+    
 </head>
 
-<body class="bg-dark">
+<body>
+    <div id="particles-js">
 
-    <div class="container mt-3">
+    </div>
+    <div class="container pt-5">
         <div class="row justify-content-center">
             <h2 class="col-12 col-lg-6 border border-warning rounded text-center text-warning p-2">Calculator <i
                     class="fas fa-calculator"></i></h2>
@@ -39,8 +30,8 @@
         <div class="row justify-content-center">
             <div class="col-12 col-lg-6 d-flex flex-wrap text-right text-warning border border-warning">
                 <div class="col-12 my-1" id="recordBlock">
-                    <button class="btn btn-dark btn-sm text-warning border border-warning" data-toggle="modal" data-target="#exampleModalCenter"><i
-                            class="fas fa-history"></i></button>
+                    <button class="btn btn-dark btn-sm text-warning border border-warning" data-toggle="modal"
+                        data-target="#exampleModalCenter"><i class="fas fa-history"></i></button>
                     <h6 class="my-2" id="currentFormula"></h6>
                 </div>
                 <div class="col-12 my-1" id="CurrentValueBlock">
@@ -150,11 +141,14 @@
         </div>
 
         <div class="row justify-content-center">
-            <h2 class="col-12 col-lg-6 border border-warning rounded text-center text-warning p-2 mt-2">&copy; By Tim Chen <a
-                    href="https://github.com/TimChen0409" target="_blank" class="text-warning"><i
+            <h2 class="col-12 col-lg-6 border border-warning rounded text-center text-warning p-2 mt-2">&copy; By
+                Tim
+                Chen <a href="https://github.com/TimChen0409" target="_blank" class="text-warning"><i
                         class="fab fa-github"></i></a></h2>
         </div>
     </div>
+  
+
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -175,7 +169,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger" id="deleteBtn"><i class="fas fa-trash-alt"></i></button>
+                    <button type="button" class="btn btn-danger" id="deleteBtn"><i
+                            class="fas fa-trash-alt"></i></button>
                 </div>
             </div>
         </div>
@@ -192,6 +187,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+    <script src="particles.js"></script>
+    <script src="app.js"></script>
     <script src="main.js"></script>
 
 
