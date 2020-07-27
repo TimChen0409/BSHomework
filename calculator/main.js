@@ -15,7 +15,7 @@ deleteBtn.addEventListener('click', deleteRecord);
 function operate() {
     let formula = currentFormula.textContent;
     let value = currentValue.textContent;
-    if (value.length > 0 || formula.length > 0) {
+    if (value.length > 0) {
         switch (this.id) {
             case "%":
                 value = operatePercentage(value);
@@ -34,7 +34,7 @@ function operate() {
                 value = operateFraction(value);
                 break;
             case "power":
-                value **= 2;
+                value = removeNumberFommat(value) ** 2;
                 break;
             case "sqrt":
                 value = Math.sqrt(value);
@@ -121,6 +121,10 @@ function operateFraction(value) {
 }
 
 function operateArithmetic(value, operator) {
+    let lastChar = value.substr(value.length - 1, 1);
+    if (lastChar == '.') {
+        value = value.substr(0, value.length - 1);
+    }
     let formulaAry = currentFormula.textContent.split('').filter(x => { return isNaN(x) });
     if (formulaAry.length == 0) {
         currentFormula.textContent = removeNumberFommat(value) + operator;
@@ -189,7 +193,7 @@ function inputNum() {
 //add dot per 3digits
 function getNumberFommat(num) {
     let reg = /(?=(\B)(\d{3})+$)/g;
-    return num.replace(reg, ",");
+    return num.toString().replace(reg, ",");
 }
 //remove dot
 function removeNumberFommat(num) {
