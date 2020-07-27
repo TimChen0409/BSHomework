@@ -10,18 +10,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
+    <link rel="stylesheet" href="animate.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <div class='container'>
-        <div class='jumbotron h3 text-warning text-center'>Pizza Template</div>
-        <div class='row'>
+<body class="bg-light">
+
+    <div class="container">
+        <div class="jumbotron h3 text-warning text-center">Pizza Template</div>
+        <div class="row">
         </div>
     </div>
 
     <template id='cardPizza'>
-        <div class="col-4 card border mb-2 overflow-hidden" style="width: 18rem;">
+        <div class="col-4 card border mb-2 overflow-hidden wow bounceInUp" data-wow-duration="2s" style="width: 18rem;">
             <img src="" class="card-img-top" alt="...">
             <div class="card-body bg-warning">
                 <h5 class="card-title text-success"></h5>
@@ -77,7 +79,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
-
+    <script src="wow.js"></script>
+    <script>
+        new WOW().init();
+    </script>
 
     <script type='module'>
         import { $g, $c } from '../NapoliPizza/Modules/helpers.js';
