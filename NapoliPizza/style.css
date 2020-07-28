@@ -9,6 +9,7 @@ body {
 }
 .card {
     cursor: pointer;
+    background-color: #FFF8EC !important;
 }
 
 .card:hover {
