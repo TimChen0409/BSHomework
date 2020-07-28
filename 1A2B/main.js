@@ -11,6 +11,7 @@ resetBtn.addEventListener('click', init);
 showAnswerBtn.addEventListener('click', showAnswer);
 submitBtn.addEventListener('click', checkAnswer);
 userInput.addEventListener('input', checkUserInput);//oninput Event
+userInput.addEventListener('input', checkUserInput);//oninput Event
 
 init();
 
@@ -46,6 +47,7 @@ function showAnswer() {
 function checkUserInput() {
     let inputAry = userInput.value.split('');
     checkRepeatedNum(inputAry);
+    validateNum(userInput);
 }
 
 function checkRepeatedNum(sourceAry) {
@@ -54,49 +56,45 @@ function checkRepeatedNum(sourceAry) {
     })
 
     if (sourceAry.length != uniqueAry.length) {
-        Swal.fire('請勿輸入重複數字', '', 'warning').then((result) => {
-            if (result.value) {
-                userInput.value = userInput.value.substring(0, userInput.value.length - 1);
-            }
+        Swal.fire('請勿輸入重複數字', '', 'warning').then(() => {
+            userInput.value = userInput.value.substring(0, userInput.value.length - 1);
         });
     }
 }
 
 function validateNum(input) {
     let reg = /^\d+$/;
-    return reg.test(input);
+    if (!reg.test(input.value)) {
+        Swal.fire('僅可輸入數字', '', 'warning').then(() => {
+            userInput.value = userInput.value.substring(0, userInput.value.length - 1);
+        });
+    }
 }
 
 function checkAnswer() {
-    if (validateNum(userInput.value)) {
-
-        let inputAry = userInput.value.split('');
-        if (inputAry.length < 4) {
-            Swal.fire('輸入數字小於4位');
-            return;
-        }
-        else {
-            let a = 0;
-            let b = 0;
-            let intersectAry = answer.filter(x => {
-                return inputAry.indexOf(x) != -1
-            })
-
-            intersectAry.forEach(y => {
-                if (answer.indexOf(y) == inputAry.indexOf(y)) {
-                    a++;
-                }
-                else {
-                    b++;
-                }
-            })
-            addRecord(userInput.value, a, b);
-            userInput.value = '';
-            checkWin(a);
-        }
+    let inputAry = userInput.value.split('');
+    if (inputAry.length < 4) {
+        Swal.fire('輸入數字小於4位');
+        return;
     }
     else {
-        Swal.fire('僅可輸入數字', '', 'warning');
+        let a = 0;
+        let b = 0;
+        let intersectAry = answer.filter(x => {
+            return inputAry.indexOf(x) != -1
+        })
+
+        intersectAry.forEach(y => {
+            if (answer.indexOf(y) == inputAry.indexOf(y)) {
+                a++;
+            }
+            else {
+                b++;
+            }
+        })
+        addRecord(userInput.value, a, b);
+        userInput.value = '';
+        checkWin(a);
     }
 }
 
