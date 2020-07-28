@@ -16,17 +16,20 @@
 
 <body class="bg-light">
     <div class="container">
-        <div class="h1 text-warning text-center my-5">Pizza Template</div>
+        <div class="h1 text-warning text-center py-5">Pizza Template</div>
         <div class="row">
-            <div class="col-3">
-                <div class="list-group">
-                    <button type="button" class="list-group-item list-group-item-action active">披薩口味</button>
-                    <button type="button" class="list-group-item list-group-item-action">MINI披薩</button>
-                    <button type="button" class="list-group-item list-group-item-action">獨門雞料理</button>
-                    <button type="button" class="list-group-item list-group-item-action">精選美食</button>
-                </div>
+            <div class="col-12">
+                <nav class="nav nav-pills nav-justified mb-3 border-bottom border-warning">
+                    <a class="nav-item nav-link text-warning h4" href="#!">披薩口味</a>
+                    <a class="nav-item nav-link text-warning h4" href="#!">MINI披薩</a>
+                    <a class="nav-item nav-link text-warning h4" href="#!">獨門雞料理</a>
+                    <a class="nav-item nav-link text-warning h4" href="#!">焗烤類</a>
+                    <a class="nav-item nav-link text-warning h4" href="#!">精選副食類</a>
+                    <a class="nav-item nav-link text-warning h4" href="#!">甜點類</a>
+                    <a class="nav-item nav-link text-warning h4" href="#!">湯品與飲料類</a>
+                </nav>
             </div>
-            <div class="col-9">
+            <div class="col-12">
                 <div class="row" id="pdBlock">
 
                 </div>
@@ -35,7 +38,8 @@
     </div>
 
     <template id='cardPizza'>
-        <div class="col-4 card border mb-2 overflow-hidden wow bounceInUp" data-wow-duration="2s" style="width: 18rem;">
+        <div class="col-6 col-lg-4 card border mb-2 overflow-hidden wow bounceInUp" data-wow-duration="2s"
+            style="width: 18rem;">
             <img src="" class="card-img-top" alt="...">
             <div class="card-body bg-warning">
                 <h5 class="card-title text-success"></h5>
@@ -101,8 +105,10 @@
         let pdBlock = $g('#pdBlock');
         let xhr = new XMLHttpRequest();
         let msg = $g("#msg");
+        let buttonGroup = $g('.nav-item');
         const url = 'https://raw.githubusercontent.com/TimChen0409/FileStorage/master/Pizza.json';
-        let dataList = [];
+        let dataList;
+
         window.onload = function () {
             getDataByAJAX();
         }
@@ -112,29 +118,42 @@
             xhr.send();
             xhr.onload = function () {
                 dataList = JSON.parse(this.responseText);
-                renderData(dataList);
+                console.log(Object.keys(dataList));
+                setBtnValueAndEvent(Object.keys(dataList));
+                renderData(dataList.pizzaProduct);
             }
         }
+
+        function setBtnValueAndEvent(dataKeysArray) {
+            dataKeysArray.forEach((item, index) => {
+                buttonGroup[index].setAttribute('id', item);
+                buttonGroup[index].addEventListener('click', function () {
+                    renderData(Object.values(dataList)[index]);
+                })
+            })
+        }
+
+
 
         function renderData(dataArray) {
             clearAllData();
             let card = $g('#cardPizza');
-            dataArray.forEach(element => {
+            dataArray.forEach(item => {
                 let cloneContent = card.content.cloneNode(true);
-                cloneContent.querySelector('h5').innerText = element.pdName;
-                cloneContent.querySelector('p').innerText = element.pdEnName;
-                cloneContent.querySelector('img').src = element.pdImageUrl;
+                cloneContent.querySelector('h5').innerText = item.pdName;
+                cloneContent.querySelector('p').innerText = item.pdEnName;
+                cloneContent.querySelector('img').src = 'img/' + item.pdImage;
 
                 cloneContent.querySelector('.btn').addEventListener('click', function () {
                     this.setAttribute("data-toggle", "modal");
                     this.setAttribute("data-target", "#exampleModal");
                     let modal = $g('#exampleModal');
-                    modal.querySelector('h5').innerText = element.pdName;
-                    modal.querySelector('p').innerText = element.pdEnName;
-                    modal.querySelector('#pizzaImage').src = element.pdImageUrl;
-                    modal.querySelector('#stuffing').innerText = element.stuffing;
-                    modal.querySelector('#description').innerText = element.description;
-                    modal.querySelector('#price').innerText = element.price;
+                    modal.querySelector('h5').innerText = item.pdName;
+                    modal.querySelector('p').innerText = item.pdEnName;
+                    modal.querySelector('#pizzaImage').src = 'img/' + item.pdImage;
+                    modal.querySelector('#stuffing').innerText = item.stuffing;
+                    modal.querySelector('#description').innerText = item.description;
+                    modal.querySelector('#price').innerText = item.price;
                 });
                 pdBlock.append(cloneContent);
             });

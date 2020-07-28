@@ -25,3 +25,8 @@ body {
     transform: scale(1);
     transition: transform 0.3s;
 }
+
+
+.nav-pills .nav-link.active{
+    background-color: #FFC107;
+}
