@@ -5,6 +5,7 @@
 }
 body {
     font-family: "Noto Sans TC", sans-serif;
+    background: url("bg.png");
 }
 .card {
     cursor: pointer;
