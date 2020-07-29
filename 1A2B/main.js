@@ -51,11 +51,8 @@ function checkUserInput() {
 }
 
 function checkRepeatedNum(sourceAry) {
-    let uniqueAry = sourceAry.filter((item, index, selfAry) => {
-        return selfAry.indexOf(item) === index;
-    })
-
-    if (sourceAry.length != uniqueAry.length) {
+    let set1 = new Set(sourceAry);//Set 物件可儲存任何類型的唯一值
+    if (sourceAry.length > 1 && sourceAry.length != set1.size) {
         Swal.fire('請勿輸入重複數字', '', 'warning').then(() => {
             userInput.value = userInput.value.substring(0, userInput.value.length - 1);
         });
