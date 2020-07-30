@@ -4,25 +4,40 @@ var timeoutId2;
 var timeoutId3;
 $(function () {
 
-    timeoutId1 = setTimeout(() => {
-        $('#loading').addClass('animate__animated animate__fadeOut');
-        _loadingExcuted = true;
-        if (_loadingExcuted) {
-            timeoutId2 = setTimeout(() => {
+    function funcA(s) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                $('#loading').addClass('animate__animated animate__fadeOut');
+                resolve();
+            }, s);
+        });
+    }
+
+    function funcB(s) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
                 $('#loading').hide();
-            }, 500);
-            clearTimeout(timeoutId2);
-        }
-        clearTimeout(timeoutId1);
-    }, 1000);
+                resolve();
+            }, s);
+        });
+    }
 
-    timeoutId3 = setTimeout(() => {
-        $('.popup').show();
-        showPopup();
-        clearTimeout(timeoutId3);
-    }, 9000);
+    function funchC(s) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                $('.popup').show();
+                showPopup();
+                resolve();
+            }, s);
+        });
+    }
 
- 
+    funcA(1500).then(function () {
+    }).then(function () {
+        funcB(1000); 
+    }).then(function () {
+        funchC(6000);
+    });
 
 
     $(window).scroll(() => {
