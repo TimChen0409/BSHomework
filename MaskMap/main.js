@@ -2,7 +2,7 @@ let maskData;
 const cities = document.querySelector('#cities');
 const area = document.querySelector('#area');
 const storeList = document.querySelector('#store-list');
-var gmarkers = [];//放所有的Marker
+var markers = [];//放所有的Marker
 
 function initMap() {
     var myLatLng = { lat: 25.0415956, lng: 121.5341098 },
@@ -10,6 +10,50 @@ function initMap() {
             center: myLatLng,
             zoom: 15
         });
+
+    map.data.loadGeoJson("https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json", null, function (features) {
+        features.map(function (feature) {
+            let count = feature.getProperty("mask_adult") + feature.getProperty("mask_child");
+            var marker = new google.maps.Marker({
+                position: feature.getGeometry().get(0),
+                icon: count < 500 ? "./red.png" : count < 1000 ? "./yellow.png" : "./green.png"
+            });
+            markers.push(marker);
+
+            let infowindow = new google.maps.InfoWindow({
+                // 設定想要顯示的內容
+                content: `<div class="infoWindow bg-light">
+                                        <h5 class="my-2">${feature.getProperty('name')}</h5>
+                                        <p class="my-1 h5 text-danger"><span>成人口罩數量：</span>${feature.getProperty('mask_adult')}</p>
+                                        <p class="my-1 h5 text-danger"><span>兒童口罩數量：</span>${feature.getProperty('mask_child')}</p>
+                                        <p class="my-1 h6">
+                                            <i class="fas fa-map-marked-alt"></i>
+                                            <a target="_blank" href="https://www.google.com.tw/maps/place/${feature.getProperty('address')}" class="text-info">${feature.getProperty('address')}</a>
+                                        </p>                
+                                        <p class="my-1 h6"><i class="fas fa-phone-alt"></i>${feature.getProperty('phone')}</p>
+                                        <p class="my-1 h6"><i class="far fa-comment-alt"></i></i>${feature.getProperty('note')}</p>
+                                        <p class="my-1 h6 text-warning"><span>數據更新時間：</span>${feature.getProperty('updated')}</p>
+                                    </div>`,
+                // 設定訊息視窗最大寬度
+                maxWidth: 450
+            });
+            marker.addListener("click", () => {
+                // 指定在哪個地圖和地標上開啟訊息視窗
+                infowindow.open(map, marker);
+            });
+        });
+
+        const clusterOptions = {
+            imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
+            gridSize: 130, //群集網格內的像素數
+            zoomOnClick: true, //單擊時是否放大群集
+            maxZoom: 15, //始終顯示常規標記之前，您可以放大的最遠級別
+        };
+        var markerCluster = new MarkerClusterer(map, markers, clusterOptions);
+        map.data.setMap(null);
+
+    });
+
     getUserLocation(map);
     getMaskData(map, 'https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json');
     getCityData('./CityCountyData.json');
@@ -21,24 +65,7 @@ function getMaskData(map, url) {
     xhr.onload = function () {
         if (this.status == 200 && this.readyState == 4) {
             maskData = JSON.parse(xhr.response);
-            renderPosition(map, maskData.features);
-
-            //設定群集資料
-            const clusterOptions = {
-                imagePath: "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
-                gridSize: 120, //群集網格內的像素數
-                zoomOnClick: true, //單擊時是否放大群集
-                maxZoom: 15, //始終顯示常規標記之前，您可以放大的最遠級別
-            };
-            var markerCluster = new MarkerClusterer(map, gmarkers, clusterOptions);
-            const styles = markerCluster.getStyles();
-            for (let i = 0; i < styles.length; i++) {
-                styles[i].textColor = "white";
-                styles[i].textSize = 18;
-            }
-
             setOptionsEvent(maskData.features, map);
-
         } else {
             console.log('Error');
         }
@@ -66,69 +93,6 @@ function getUserLocation(map) {
     } else {
         console.log('你的裝置不支援定位功能。');
     }
-}
-
-function renderPosition(map, data) {
-    data.forEach(x => {
-        let count = x.properties.mask_adult + x.properties.mask_child;
-        var marker;
-        if (count <= 500) {
-            marker = new google.maps.Marker({
-                position: {
-                    lat: x.geometry.coordinates[1], lng:
-                        x.geometry.coordinates[0]
-                },
-                icon: "./red.png",
-                map: map
-            });
-            gmarkers.push(marker);
-        }
-        else if (count <= 1000) {
-            marker = new google.maps.Marker({
-                position: {
-                    lat: x.geometry.coordinates[1], lng:
-                        x.geometry.coordinates[0]
-                },
-                icon: "./yellow.png",
-                map: map
-            });
-            gmarkers.push(marker);
-        }
-        else {
-            marker = new google.maps.Marker({
-                position: {
-                    lat: x.geometry.coordinates[1], lng:
-                        x.geometry.coordinates[0]
-                },
-                icon: "./green.png",
-                map: map
-            });
-            gmarkers.push(marker);
-        }
-
-        const infowindow = new google.maps.InfoWindow({
-            // 設定想要顯示的內容
-            content: `<div class="infoWindow bg-light">
-                        <h5 class="my-2">${x.properties.name}</h5>
-                        <p class="my-1 h5 text-danger"><span>成人口罩數量：</span>${x.properties.mask_adult}</p>
-                        <p class="my-1 h5 text-danger"><span>兒童口罩數量：</span>${x.properties.mask_child}</p>
-                        <p class="my-1 h6">
-                            <i class="fas fa-map-marked-alt"></i>
-                            <a target="_blank" href="https://www.google.com.tw/maps/place/${x.properties.address}" class="text-info">${x.properties.address}</a>
-                        </p>                
-                        <p class="my-1 h6"><i class="fas fa-phone-alt"></i>${x.properties.phone}</p>
-                        <p class="my-1 h6"><i class="far fa-comment-alt"></i></i>${x.properties.note}</p>
-                        <p class="my-1 h6 text-warning"><span>數據更新時間：</span>${x.properties.updated}</p>
-                    </div>`,
-            // 設定訊息視窗最大寬度
-            maxWidth: 450
-        });
-        // 在地標上監聽點擊事件
-        marker.addListener("click", () => {
-            // 指定在哪個地圖和地標上開啟訊息視窗
-            infowindow.open(this.map, marker);
-        });
-    });
 }
 
 function setOptionsEvent(data, map) {
