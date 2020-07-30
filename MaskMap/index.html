@@ -138,7 +138,6 @@
                     }
 
                     setOptionsEvent(maskData.features, map);
-                    //setIconEvent(map);
 
                 } else {
                     console.log('Error');
@@ -235,30 +234,6 @@
         function setOptionsEvent(data, map) {
             cities.addEventListener("change", function () {
                 storeList.innerHTML = '';
-
-                // data.forEach(item => {
-                //     let itemValues = item.properties;
-                //     let itemLocation = item.geometry.coordinates;
-
-                //     if (itemValues.county == cities.value && itemValues.town == area.value) {
-
-                //         let card = document.querySelector('#cardTemplate');
-                //         let cloneContent = card.content.cloneNode(true);
-                //         cloneContent.querySelector('#shopName').innerText = itemValues.name;
-                //         cloneContent.querySelector('.fa-eye').setAttribute('data-lat', itemLocation[1]);
-                //         cloneContent.querySelector('.fa-eye').setAttribute('data-lng', itemLocation[0]);
-                //         cloneContent.querySelector('#adult').innerText = "成人口罩數量：" + itemValues.mask_adult;
-                //         cloneContent.querySelector('#child').innerText = "兒童口罩數量：" + itemValues.mask_child;
-                //         cloneContent.querySelector('#address').innerText = itemValues.name;
-                //         cloneContent.querySelector('#address').setAttribute('href', `https://www.google.com.tw/maps/place/${itemValues.address}`);
-                //         cloneContent.querySelector('#phone').innerHTML = '<i class="fas fa-phone-alt"></i>' + itemValues.phone;
-                //         cloneContent.querySelector('#note').innerHTML = '<i class="far fa-comment-alt"></i>' + itemValues.note;
-                //         cloneContent.querySelector('.fa-eye').addEventListener('click', function () {
-
-                //         });
-                //         storeList.append(cloneContent);
-                //     }
-                // })
             })
 
             area.addEventListener("change", function () {
