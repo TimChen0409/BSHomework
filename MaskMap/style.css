@@ -1,0 +1,35 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: "Noto Sans TC", sans-serif, "微軟正黑體";
+}
+html,
+body {
+    height: 100%;
+}
+
+#map {
+    height: calc(100vh - 20px);
+}
+
+#sidebar {
+    position: absolute;
+    overflow-y: scroll;
+    z-index: 999;
+    height: 100vh;
+}
+
+#sidebar i {
+    font-size: 22px;
+    cursor: pointer;
+    color: #2a81cb;
+    padding: 5px;
+}
+
+.infoWindow i {
+    font-size: 16px;
+    cursor: pointer;
+    color: #2a81cb;
+    padding: 5px;
+}
