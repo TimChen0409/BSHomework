@@ -50,6 +50,11 @@ function initMap() {
             maxZoom: 15, //始終顯示常規標記之前，您可以放大的最遠級別
         };
         var markerCluster = new MarkerClusterer(map, markers, clusterOptions);
+        const styles = markerCluster.getStyles();
+        for (let i = 0; i < styles.length; i++) {
+            styles[i].textColor = "white";
+            styles[i].textSize = 18;
+        }
         map.data.setMap(null);
 
     });
