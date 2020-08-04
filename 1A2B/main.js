@@ -11,7 +11,6 @@ resetBtn.addEventListener('click', init);
 showAnswerBtn.addEventListener('click', showAnswer);
 submitBtn.addEventListener('click', checkAnswer);
 userInput.addEventListener('input', checkUserInput);//oninput Event
-userInput.addEventListener('input', checkUserInput);//oninput Event
 
 init();
 
