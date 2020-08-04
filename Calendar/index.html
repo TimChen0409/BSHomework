@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Calendar</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row my-3">
+            <div class="col-1">
+                <button type="button" class="btn btn-info" id="goLeft">
+                    <i class="fas fa-arrow-circle-left fa-lg"></i>
+                </button>
+            </div>
+            <div class="col-9 text-center">
+                <h2 class="text-info"><span id="year"></span> 年 <span id="month"></span> 月 </h2>
+            </div>
+            <div class="col-1">
+                <button type="button" class="btn btn-info" id="goRight">
+                    <i class="fas fa-arrow-circle-right fa-lg"></i>
+                </button>
+            </div>
+            <div class="col-1">
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#TodoModal">
+                    <i class="far fa-plus-square fa-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="row">
+            <table class="table table-bordered text-info">
+                <thead class="text-center">
+                    <tr>
+                        <th>SUN</th>
+                        <th>MON</th>
+                        <th>TUE</th>
+                        <th>WED</th>
+                        <th>THU</th>
+                        <th>FRI</th>
+                        <th>SAT</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="TodoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">新增行程</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="date" class="col-sm-2 col-form-label">日期</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" id="date">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="time" class="col-sm-2 col-form-label">時間</label>
+                        <div class="col-sm-10">
+                          <input type="time" class="form-control" id="time">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="contents" class="col-sm-2 col-form-label">事項內容</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id="contents" rows="3"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="color" class="col-sm-2 col-form-label">標註顏色</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" data-jscolor="{position:'right'}" value="" id="color">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="position" class="col-sm-2 col-form-label">地點</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="position" placeholder="請輸入地點...">
+                        </div>
+                      </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">新增</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="jscolor.js"></script>
+</body>
+
+</html>
