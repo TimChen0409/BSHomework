@@ -1,4 +1,4 @@
-var answer = [];
+var answer = new Set();
 const startBtn = document.querySelector('#startBtn');
 const resetBtn = document.querySelector('#resetBtn');
 const showAnswerBtn = document.querySelector('#showAnswerBtn');
@@ -16,7 +16,7 @@ userInput.addEventListener('input', checkUserInput);//oninput Event
 init();
 
 function init() {
-    answer = [];
+    answer.clear();
     startBtn.disabled = false;
     resetBtn.disabled = true;
     showAnswerBtn.disabled = true;
@@ -27,12 +27,13 @@ function init() {
 }
 
 function startGame() {
-    let numAry = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    for (let i = 0; i < 4; i++) {
-        let num = Math.floor(Math.random() * numAry.length);
-        answer.push(numAry[num].toString());
-        numAry.splice(num, 1);
-    }
+    // let numAry = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    // for (let i = 0; i < 4; i++) {
+    //     let num = Math.floor(Math.random() * numAry.length);
+    //     answer.push(numAry[num].toString());
+    //     numAry.splice(num, 1);
+    // }
+    createAnswer();
     startBtn.disabled = true;
     resetBtn.disabled = false;
     showAnswerBtn.disabled = false;
@@ -40,8 +41,19 @@ function startGame() {
     userInput.disabled = false;
 }
 
+function createAnswer() {
+    while (answer.size < 4) {
+        let randomNum = getRandomInt(10).toString();
+        answer.add(randomNum);
+    }
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
 function showAnswer() {
-    Swal.fire(`Answer: ${answer.join('')}`);
+    Swal.fire(`Answer: ${Array.from(answer).join('')}`);
 }
 
 function checkUserInput() {
@@ -77,12 +89,12 @@ function checkAnswer() {
     else {
         let a = 0;
         let b = 0;
-        let intersectAry = answer.filter(x => {
+        let intersectAry = (Array.from(answer)).filter(x => {
             return inputAry.indexOf(x) != -1
         })
-
+        console.log(intersectAry);
         intersectAry.forEach(y => {
-            if (answer.indexOf(y) == inputAry.indexOf(y)) {
+            if ((Array.from(answer)).indexOf(y) == inputAry.indexOf(y)) {
                 a++;
             }
             else {
