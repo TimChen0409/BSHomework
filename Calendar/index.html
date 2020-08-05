@@ -85,6 +85,12 @@
 
                 <div class="modal-body">
                     <div class="form-group row">
+                        <label for="date" class="col-sm-2 col-form-label">標題</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="title" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="date" class="col-sm-2 col-form-label">日期</label>
                         <div class="col-sm-10">
                             <input type="date" class="form-control" id="date" required>
@@ -385,27 +391,28 @@
 
 
         function addTodo() {
-
+            let titleVal = document.querySelector("#title").value;
             let dateVal = document.querySelector("#date").value;
             let timeVal = document.querySelector("#time").value;
             let contentsVal = document.querySelector("#contents").value;
             let colorVal = document.querySelector("#color").value;
             let positionVal = document.querySelector("#position").value;
-            if (dateVal == '' || timeVal == '' || contentsVal == '') {
+            if (titleVal == '' || dateVal == '' || timeVal == '' || contentsVal == '') {
                 Swal.fire('日期、時間或內容不能為空', '', 'warning').then(() => {
                     return;
                 });
             }
             else {
-                saveToLocalStorage(dateVal, timeVal, contentsVal, colorVal, positionVal);
+                saveToLocalStorage(titleVal, dateVal, timeVal, contentsVal, colorVal, positionVal);
                 $('#todoModal').modal('hide');
             }
             showCalendar(currentYear, currentMonth);
 
         }
 
-        function saveToLocalStorage(date, time, contents, color, position) {
+        function saveToLocalStorage(title, date, time, contents, color, position) {
             let data = {
+                title: title,
                 date: date,
                 time: time,
                 contents: contents,
@@ -425,12 +432,12 @@
 
                 if ((year + "-" + month.toString().padStart(2, "0")) == dataDate.substring(0, 7)) {//判斷是否為該月事項
                     let datakey = localStorage.key(i);
-                    let contents = (data.contents).toString();
+                    let title = (data.title).toString();
                     let targetTD = document.getElementById(dataDate);//querySelector不支援搜尋數字開頭的ID所以要改用getElementById
                     let button = document.createElement("button");
                     button.classList.add("btn", "btn-block", "text-left", "border", "border-secondary", "rounded")
                     button.style.backgroundColor = data.color;
-                    button.textContent = contents.length <= 5 ? contents : contents.substring(0, 5) + "...";
+                    button.textContent = title.length <= 5 ? title : title.substring(0, 5) + "...";
                     button.dataset.toggle = "modal";
                     button.dataset.target = "#todoModal"
 
@@ -442,10 +449,10 @@
                         //把Datakey設定在按鈕上
                         deleteBtn.setAttribute("value", datakey);
                         modifyBtn.setAttribute("value", datakey);
-
+                        document.querySelector("#title").value = data.title;
                         document.querySelector("#date").value = dataDate;
                         document.querySelector("#time").value = data.time;
-                        document.querySelector("#contents").value = contents;
+                        document.querySelector("#contents").value = data.contents;
                         document.querySelector("#color").value = data.color;
                         document.querySelector("#position").value = data.position;
                     })
