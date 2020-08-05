@@ -87,7 +87,6 @@
     let resetBtn = document.querySelector("#resetBtn");
     let shuffleBtn = document.querySelector("#shuffleBtn");
     let Options = document.querySelectorAll(".form-check-input");
-    let puzzles = document.querySelectorAll(".puzzle");
     //let puzzles = [];
     uploadImg.addEventListener('change', startGame);
     //shuffleBtn.addEventListener('click', setRandomPosition);
@@ -110,7 +109,11 @@
 
       gameMapContent.classList.add("border");
       createPuzzles(imgUrl, selectedSize);
-      //setRandomPosition();
+
+      let puzzles = document.querySelectorAll(".puzzle");
+      puzzles.forEach(x => {
+        x.addEventListener("click", movepuzzle)
+      })
     }
 
     function getRadioValue() {
@@ -121,6 +124,10 @@
         }
       })
       return val;
+    }
+
+    function movepuzzle() {
+      console.log(this);
     }
 
     function resetGame() {
@@ -147,20 +154,12 @@
           div.style.height = `${puzzleSize}px`;
           div.style.width = `${puzzleSize}px`;
           div.style.backgroundImage = `url('${imgUrl}')`;
-          div.style.backgroundPosition = `${Math.floor(i) * puzzleSize}px ${Math.floor(j) * puzzleSize}px`;
-          //puzzles.push(div);
+          div.style.backgroundPosition = `-${Math.floor(j) * puzzleSize}px -${Math.floor(i) * puzzleSize}px`;//成功
           gameMapContent.append(div)
 
         }
       }
     }
-
-    // function setRandomPosition() {
-    //   //如果排序時，給定任兩個數字(a, b)，隨機回傳一個介於-0.5 ~ +0.5的數值，表示任兩個數字之間的大小相對關係是隨機的。
-    //   //let randomPuzzles = Array.from(puzzles).sort(() => Math.random() - 0.5);
-    //   randomPuzzles.forEach(x => {
-    //   });
-    // }
 
 
   </script>
