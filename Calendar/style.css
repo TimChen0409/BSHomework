@@ -11,6 +11,35 @@ body {
     background-attachment: fixed;
 }
 
-h2.text-info{
+#map {
+    height: 350px;
+    width: 350px;
+}
+
+h2.text-info {
     letter-spacing: 2px;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.btn-circle.btn-xl {
+    width: 45px;
+    height: 45px;
+    padding: 6px 8px;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 1.3;
+}
+
+.dayBlock {
+    height: 120px;
+    width: 120px;
 }
