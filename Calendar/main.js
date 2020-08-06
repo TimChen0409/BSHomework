@@ -11,9 +11,14 @@ const deleteBtn = document.querySelector("#deleteBtn");
 const modifyBtn = document.querySelector("#modifyBtn");
 
 addTodoBtn.addEventListener("click", function () {
+    //Model切換
     addBtn.classList.remove("d-none");
     deleteBtn.classList.add("d-none");
     modifyBtn.classList.add("d-none");
+    document.querySelector(".modal-title").textContent = "新增行程";
+    document.querySelector("#modifyTime").textContent = '';
+
+
     let inputs = document.querySelectorAll('.form-control');
     inputs.forEach(x => {
         x.value = '';
@@ -96,7 +101,6 @@ function addTodo() {
         $('#todoModal').modal('hide');
     }
     showCalendar(currentYear, currentMonth);
-
 }
 
 function saveToLocalStorage(title, date, time, contents, color, position) {
@@ -106,7 +110,8 @@ function saveToLocalStorage(title, date, time, contents, color, position) {
         time: time,
         contents: contents,
         color: color,
-        position: position
+        position: position,
+        updateTime: new Date().toLocaleString()
     }
     localStorage.setItem(Date.now(), JSON.stringify(data));
 }
@@ -130,13 +135,17 @@ function showTodoData(year, month) {
             button.dataset.target = "#todoModal"
 
             button.addEventListener("click", function () {
-
+                //Model切換
                 addBtn.classList.add("d-none");
                 deleteBtn.classList.remove("d-none");
                 modifyBtn.classList.remove("d-none");
-                //把Datakey設定在按鈕上
+                document.querySelector(".modal-title").textContent = "修改行程";
+                document.querySelector("#modifyTime").textContent = `更新時間：${data.updateTime}`;
+
+                //把Data的key設定在按鈕上
                 deleteBtn.setAttribute("value", datakey);
                 modifyBtn.setAttribute("value", datakey);
+
                 document.querySelector("#title").value = data.title;
                 document.querySelector("#date").value = dataDate;
                 document.querySelector("#time").value = data.time;
