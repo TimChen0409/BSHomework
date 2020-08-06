@@ -1,7 +1,10 @@
 let dateNow = new Date();
 let currentYear = dateNow.getFullYear();
 let currentMonth = dateNow.getMonth() + 1;//getMonth()返回數字 0(一月)~11(十二月)
-let toDoListData;
+
+let day_list = ['日', '一', '二', '三', '四', '五', '六'];
+let todayDate = `${dateNow.getFullYear()}.${dateNow.getMonth() + 1}.${dateNow.getDate()}(${day_list[dateNow.getDay()]})`
+
 const addTodoBtn = document.querySelector("#addTodoBtn");
 const tbody = document.querySelector("#tbody");
 const prevBtn = document.querySelector("#prevBtn");
@@ -32,6 +35,30 @@ deleteBtn.addEventListener("click", deleteOrModifyTodo);
 modifyBtn.addEventListener("click", deleteOrModifyTodo);
 
 showCalendar(currentYear, currentMonth);
+setClock();
+
+function setClock() {
+
+    setInterval(function () {
+        var today = new Date();
+        var hh = today.getHours();
+        var mm = today.getMinutes();
+        var ss = today.getSeconds();
+        hh = checkTime(hh);
+        mm = checkTime(mm);
+        ss = checkTime(ss);
+        document.querySelector("#clock").textContent =`${todayDate} ${hh}:${mm}:${ss}` ;
+
+    }, 1000);
+}
+
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
+
 
 function showCalendar(year, month) {
     document.querySelector("#year").textContent = year;
