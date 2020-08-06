@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Chart.js with jQuery AJAX data</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: "微軟正黑體", Arial, Helvetica, sans-serif;
+        }
+
+        #noDataMsg {
+            display: none;
+            position: absolute;
+            font-size: 40px;
+            top: 50%;
+            width: 100%;
+        }
+
+        .spinner-border {
+            position: absolute;
+            font-size: 40px;
+            left: 50%;
+            top: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1 class="text-center my-3">Chart.js with jQuery AJAX data</h1>
+        <div class="row">
+            <div class="col-6">
+                <h5 class="font-weight-bold">資料載入成功</h5>
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="col-6">
+                <h5 class="font-weight-bold">資料載入失敗</h5>
+                <canvas id="myChart2"></canvas>
+                <div id="noDataMsg" class="text-center text-danger">Nothing to display</div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-6">
+                <h5 class="font-weight-bold">資料延遲載入成功</h5>
+                <canvas id="myChart3"></canvas>
+                <div class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <h5 class="font-weight-bold">資料更新</h5>
+                <canvas id="myChart4"></canvas>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script>
+
+        let apiUrl = "https://raw.githubusercontent.com/TimChen0409/FileStorage/master/chartData.json";
+        let apiErrorUrl = "https://raw.githubusercontent.com/TimChen0409/FileStorage/master/chartData1.json";
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var ctx2 = document.getElementById('myChart2').getContext('2d');
+        var ctx3 = document.getElementById('myChart3').getContext('2d');
+        var ctx4 = document.getElementById('myChart4').getContext('2d');
+
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: '',
+                datasets: [{
+                    label: '旅遊行程投票',
+                    data: '',
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        var myChart2 = new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: '',
+                datasets: [{
+                    label: '旅遊行程投票',
+                    data: '',
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        var myChart3 = new Chart(ctx3, {
+            type: 'pie',
+            data: {
+                labels: '',
+                datasets: [{
+                    label: '旅遊行程投票',
+                    data: '',
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        var myChart4 = new Chart(ctx4, {
+            type: 'pie',
+            data: {
+                labels: '',
+                datasets: [{
+                    label: '旅遊行程投票',
+                    data: '',
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(128, 128, 128, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(64, 64, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        $.ajax({
+            url: apiUrl,
+            type: 'GET',
+            dataType: 'json'
+        }).done(res => {
+            addData(myChart, res.labels, res.data);
+        })
+            .fail(() => console.log('JQuery Ajax Error'))
+            .always(() => console.log('AJAX1,complete'));
+
+
+        $.ajax({
+            url: apiErrorUrl,
+            type: 'GET',
+            dataType: 'json'
+        }).done(res => {
+            addData(myChart2, res.labels, res.data);
+        })
+            .fail(() => {
+                $("#noDataMsg").show();
+                console.log('JQuery Ajax Error')
+            })
+            .always(() => console.log('AJAX2,complete'));
+
+        $.ajax({
+            url: apiUrl,
+            type: 'GET',
+            dataType: 'json'
+        }).done(res => {
+            let timerID = setTimeout(() => {
+                addData(myChart3, res.labels, res.data);
+                $(".spinner-border").hide();
+                clearTimeout(timerID);
+            }, 3000)
+
+        })
+            .fail(() => {
+                console.log('JQuery Ajax Error')
+            })
+            .always(() => console.log('AJAX3,complete'));
+
+        $.ajax({
+            url: apiUrl,
+            type: 'GET',
+            dataType: 'json'
+        }).done(res => {
+            addData(myChart4, res.labels, res.data);
+
+            let timerID = setTimeout(() => {
+                let newLabels = ["台灣", "美國", "日本", "泰國", "琉球", "紐西蘭", "澳洲"];
+                let newData = [7, 15, 9, 6, 5, 4, 2];
+                addData(myChart4, newLabels, newData);
+                clearTimeout(timerID);
+            }, 4000)
+
+        })
+            .fail(() => {
+                console.log('JQuery Ajax Error')
+            })
+            .always(() => console.log('AJAX3,complete'));
+
+
+        function addData(chart, label, data) {
+            chart.data.labels = label;
+            chart.data.datasets.forEach((dataset) => {
+                dataset.data = data;
+            });
+            chart.update();
+        }
+    </script>
+</body>
+
+</html>
