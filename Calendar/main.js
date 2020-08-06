@@ -108,8 +108,7 @@ function saveToLocalStorage(title, date, time, contents, color, position) {
         color: color,
         position: position
     }
-    localStorage.setItem(Math.floor(new Date()), JSON.stringify(data));
-
+    localStorage.setItem(Date.now(), JSON.stringify(data));
 }
 
 
