@@ -119,7 +119,7 @@ function addTodo() {
     let colorVal = document.querySelector("#color").value;
     let positionVal = document.querySelector("#position").value;
     if (titleVal == '' || dateVal == '' || timeVal == '' || contentsVal == '') {
-        Swal.fire('日期、時間或內容不能為空', '', 'warning').then(() => {
+        Swal.fire('標題,日期,時間或內容不能為空', '', 'warning').then(() => {
             return;
         });
     }
