@@ -38,27 +38,18 @@ showCalendar(currentYear, currentMonth);
 setClock();
 
 function setClock() {
-
     setInterval(function () {
         var today = new Date();
         var hh = today.getHours();
         var mm = today.getMinutes();
         var ss = today.getSeconds();
-        hh = checkTime(hh);
-        mm = checkTime(mm);
-        ss = checkTime(ss);
-        document.querySelector("#clock").textContent =`${todayDate} ${hh}:${mm}:${ss}` ;
+        hh = hh < 10 ? "0" + hh : hh;
+        mm = mm < 10 ? "0" + mm : mm;
+        ss = ss < 10 ? "0" + ss : ss;
+        document.querySelector("#clock").textContent = `${todayDate} ${hh}:${mm}:${ss}`;
 
     }, 1000);
 }
-
-function checkTime(i) {
-    if (i < 10) {
-        i = "0" + i;
-    }
-    return i;
-}
-
 
 function showCalendar(year, month) {
     document.querySelector("#year").textContent = year;
