@@ -61,8 +61,8 @@ function randomDayBlock(currentYear, currentMonth) {
     tbody.innerHTML = '';
     let curMonthDays = new Date(currentYear, currentMonth, 0).getDate();
     let curMonthFirstDay = new Date(currentYear, currentMonth - 1, 1).getDay();
-
     let count = 1;
+
     for (let i = 0; i < 6; i++) {
         let tr = document.createElement("tr");
 
@@ -86,6 +86,7 @@ function randomDayBlock(currentYear, currentMonth) {
         }
         tbody.append(tr);
     }
+    
     showTodoData(currentYear, currentMonth);
 }
 
@@ -117,8 +118,8 @@ function addTodo() {
     else {
         saveToLocalStorage(titleVal, dateVal, timeVal, contentsVal, colorVal, positionVal);
         $('#todoModal').modal('hide');
+        showCalendar(currentYear, currentMonth);
     }
-    showCalendar(currentYear, currentMonth);
 }
 
 function saveToLocalStorage(title, date, time, contents, color, position) {
