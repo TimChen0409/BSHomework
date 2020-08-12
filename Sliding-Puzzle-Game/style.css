@@ -24,6 +24,7 @@ body{
 
 .puzzle {
     background-size: 500px;
+    cursor: pointer;
 }
 
 [id="11"] {
