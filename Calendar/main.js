@@ -86,7 +86,7 @@ function randomDayBlock(currentYear, currentMonth) {
         }
         tbody.append(tr);
     }
-    
+
     showTodoData(currentYear, currentMonth);
 }
 
@@ -103,7 +103,7 @@ function next() {
 }
 
 
-function addTodo() {
+function addTodo(value) {
     let titleVal = document.querySelector("#title").value;
     let dateVal = document.querySelector("#date").value;
     let timeVal = document.querySelector("#time").value;
@@ -116,6 +116,9 @@ function addTodo() {
         });
     }
     else {
+        if (typeof value == "string") {
+            localStorage.removeItem(value);
+        }
         saveToLocalStorage(titleVal, dateVal, timeVal, contentsVal, colorVal, positionVal);
         $('#todoModal').modal('hide');
         showCalendar(currentYear, currentMonth);
@@ -178,10 +181,12 @@ function showTodoData(year, month) {
 }
 
 function deleteOrModifyTodo() {
-    localStorage.removeItem(this.value);
-    if (this.id == "modifyBtn") {
-        addTodo();
+    if (this.id == "deleteBtn") {
+        localStorage.removeItem(this.value);
+        $('#todoModal').modal('hide');
+        showCalendar(currentYear, currentMonth);
     }
-    $('#todoModal').modal('hide');
-    showCalendar(currentYear, currentMonth);
+    if (this.id == "modifyBtn") {
+        addTodo(this.value);
+    }
 }

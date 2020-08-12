@@ -26,6 +26,6 @@ body{
     background-size: 500px;
 }
 
-.puzzle11 {
+[id="11"] {
     opacity: 0;
 }
