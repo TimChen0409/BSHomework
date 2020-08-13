@@ -85,7 +85,6 @@ function shuffle() {
     let count = 0;
     while (count < 100) {
         let randomCount = Math.floor(Math.random() * puzzles.length);
-        console.log(randomCount);
 
         movePuzzle(puzzles[randomCount]);
         moveRecord.push(randomCount);
