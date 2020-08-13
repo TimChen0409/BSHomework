@@ -25,8 +25,13 @@ body{
 .puzzle {
     background-size: 500px;
     cursor: pointer;
+    /* transition: all .3s ease-in-out; */
 }
 
-[id="11"] {
+.empty {
     opacity: 0;
+}
+
+.form-check-label{
+    letter-spacing: 1px;
 }
