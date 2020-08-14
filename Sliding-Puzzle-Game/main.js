@@ -3,7 +3,10 @@ let examplePicBtn = document.querySelector("#examplePicBtn");
 let gameMapContent = document.querySelector("#gameMap .row");
 let imgPreview = document.querySelector("#imgPreview");
 let resetBtn = document.querySelector("#resetBtn");
+let gobackOneBtn = document.querySelector("#gobackOne");
+let gobackAllBtn = document.querySelector("#gobackAll");
 let Options = document.querySelectorAll(".form-check-input");
+let btnSet = document.querySelectorAll(".btnSet");
 let puzzleSize;
 let puzzles;
 let moveRecord = [];
@@ -14,6 +17,21 @@ let shuffleExcuted = false;
 uploadImg.addEventListener('change', startGame);
 examplePicBtn.addEventListener('click', startGame);
 resetBtn.addEventListener('click', resetGame);
+gobackOneBtn.addEventListener('click', goback);
+gobackAllBtn.addEventListener('click', gobackAll);
+
+function goback() {
+    let step = moveRecord.pop();
+    console.log(puzzles);
+    movePuzzle(puzzles[step], 'back');
+}
+
+function gobackAll() {
+    while (moveRecord.length > 0) {
+        let step = moveRecord.pop();
+        movePuzzle(puzzles[step], 'back');
+    }
+}
 
 
 function startGame() {
@@ -21,9 +39,8 @@ function startGame() {
     let selectedSize = getRadioValue();
     let imgUrl;
     uploadImg.disabled = true;
-    resetBtn.disabled = false;
+    btnSet.forEach(x => x.disabled = false);
     examplePicBtn.disabled = true;
-
 
     if (this.id == 'examplePicBtn') {
         imgUrl = './duke.jpg';
@@ -89,18 +106,18 @@ function createPuzzles(imgUrl, size) {
 
 function shuffle() {
     let count = 0;
-    while (count < 100) {
-        console.log(123);
+    while (count < 10) {
         let randomCount = Math.floor(Math.random() * puzzles.length);
         movePuzzle(puzzles[randomCount]);
         moveRecord.push(randomCount);
         count++;
     }
-    puzzles.forEach(x => x.style.transition = "all .3s");//後來才綁定transition屬性避免洗牌時觸發click事件
+    //puzzles.forEach(x => x.style.transition = "all .3s");//後來再綁定transition屬性避免洗牌時觸發click事件
     shuffleExcuted = true;
 }
 
-function movePuzzle(thisPuzzle) {
+function movePuzzle(thisPuzzle, type) {
+    console.log(type);
 
     let clickPuzzleIndex = puzzles.indexOf(thisPuzzle);
     let emptyIndex = puzzles.findIndex((item) => { return item.classList.contains("empty"); })
@@ -119,11 +136,14 @@ function movePuzzle(thisPuzzle) {
     }
 
     if (shuffleExcuted) {
-        moveRecord.push(clickPuzzleIndex);
+        if (type != 'back') {
+            moveRecord.push(clickPuzzleIndex)
+        }
 
         if (checkWin(puzzles)) {
             winID = setTimeout(() => {
-                alert("You win！");
+                console.log("You win！");
+                
             }, 300);
         }
     }
@@ -151,7 +171,8 @@ function checkWin(nowAnsArray) {
 }
 
 function resetGame() {
-    moveRecord.length = 0;//清空紀錄
+    moveRecord.length = 0;
+    shuffleExcuted = false;
     uploadImg.value = '';//清空input的value，這樣選同一張圖片才能觸發change事件
     imgPreview.src = "";
     gameMapContent.innerHTML = '';
@@ -160,7 +181,7 @@ function resetGame() {
     Options.forEach(x => {
         x.disabled = false;
     })
-    resetBtn.disabled = true;
+    btnSet.forEach(x => x.disabled = true);
     gameMapContent.classList.remove("border");
     clearTimeout(winID);
 }
