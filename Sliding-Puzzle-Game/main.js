@@ -7,6 +7,7 @@ let gobackOneBtn = document.querySelector("#gobackOne");
 let gobackAllBtn = document.querySelector("#gobackAll");
 let Options = document.querySelectorAll(".form-check-input");
 let btnSet = document.querySelectorAll(".btnSet");
+var timerSpan = document.getElementById("timer");
 let puzzleSize;
 let puzzles;
 let moveRecord = [];
@@ -14,6 +15,7 @@ let answer = [];
 let nowAns = [];
 let winID;
 let shuffleExcuted = false;
+let timer;
 uploadImg.addEventListener('change', startGame);
 examplePicBtn.addEventListener('click', startGame);
 resetBtn.addEventListener('click', resetGame);
@@ -21,21 +23,25 @@ gobackOneBtn.addEventListener('click', goback);
 gobackAllBtn.addEventListener('click', gobackAll);
 
 function goback() {
+    puzzles.forEach(x => x.style.transition = "none");
     let step = moveRecord.pop();
-    console.log(puzzles);
     movePuzzle(puzzles[step], 'back');
+    puzzles.forEach(x => x.style.transition = "all .3s");
 }
 
 function gobackAll() {
+    puzzles.forEach(x => x.style.transition = "none");//後來再綁定transition屬性避免洗牌時觸發click事件
+
     while (moveRecord.length > 0) {
         let step = moveRecord.pop();
-        movePuzzle(puzzles[step], 'back');
+        movePuzzle(puzzles[step], 'backAll');
     }
+    checkWin(puzzles);
 }
 
 
 function startGame() {
-
+    timer = setInterval("Check_Time()", 1000);
     let selectedSize = getRadioValue();
     let imgUrl;
     uploadImg.disabled = true;
@@ -64,9 +70,8 @@ function startGame() {
             return
         }
         x.addEventListener("click", function () {
-            movePuzzle(this);
+            movePuzzle(this, 'click');
         })
-
     })
     shuffle();
 }
@@ -106,19 +111,17 @@ function createPuzzles(imgUrl, size) {
 
 function shuffle() {
     let count = 0;
-    while (count < 10) {
+    while (count < 100) {
         let randomCount = Math.floor(Math.random() * puzzles.length);
         movePuzzle(puzzles[randomCount]);
         moveRecord.push(randomCount);
         count++;
     }
-    //puzzles.forEach(x => x.style.transition = "all .3s");//後來再綁定transition屬性避免洗牌時觸發click事件
+    puzzles.forEach(x => x.style.transition = "all .3s");//後來再綁定transition屬性避免洗牌時觸發click事件
     shuffleExcuted = true;
 }
 
 function movePuzzle(thisPuzzle, type) {
-    console.log(type);
-
     let clickPuzzleIndex = puzzles.indexOf(thisPuzzle);
     let emptyIndex = puzzles.findIndex((item) => { return item.classList.contains("empty"); })
     let left = thisPuzzle.offsetLeft;
@@ -136,15 +139,11 @@ function movePuzzle(thisPuzzle, type) {
     }
 
     if (shuffleExcuted) {
-        if (type != 'back') {
-            moveRecord.push(clickPuzzleIndex)
+        if (type != 'back' && type != 'backAll') {
+            moveRecord.push(clickPuzzleIndex);
         }
-
-        if (checkWin(puzzles)) {
-            winID = setTimeout(() => {
-                console.log("You win！");
-                
-            }, 300);
+        if (type != 'backAll') {
+            checkWin(puzzles);
         }
     }
 }
@@ -162,12 +161,18 @@ function CanMoveOrNot(left, top, targetLeft, targetTop) {
 }
 
 function checkWin(nowAnsArray) {
+    let result = 0;
     for (let i = 0; i < nowAnsArray.length; i++) {
-        if (nowAnsArray[i].style.top != answer[i].top || nowAnsArray[i].style.left != answer[i].left) {
-            return false;
+        if (nowAnsArray[i].style.top == answer[i].top && nowAnsArray[i].style.left == answer[i].left) {
+            result++;
         }
     }
-    return true;
+    if (result == nowAnsArray.length) {
+        winID = setTimeout(() => {
+            alert("You win！");
+            resetGame();
+        }, 500);
+    }
 }
 
 function resetGame() {
@@ -184,4 +189,14 @@ function resetGame() {
     btnSet.forEach(x => x.disabled = true);
     gameMapContent.classList.remove("border");
     clearTimeout(winID);
+    clearInterval(timer);
+    timerSpan.innerHTML = '0分0秒';
+}
+
+var SetMinute = 0;
+function Check_Time() {
+    SetMinute += 1;
+    var Cal_Minute = Math.floor(Math.floor(SetMinute % 3600) / 60);
+    var Cal_Second = SetMinute % 60;
+    timerSpan.innerHTML = Cal_Minute + "分" + Cal_Second + "秒";
 }

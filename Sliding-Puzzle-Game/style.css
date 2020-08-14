@@ -37,6 +37,11 @@ body {
     opacity: 0;
 }
 
+#timer{
+    color:red;
+    letter-spacing: 1px;
+}
+
 .form-check-label {
     letter-spacing: 1px;
 }
