@@ -54,10 +54,10 @@ function setClock() {
 function showCalendar(year, month) {
     document.querySelector("#year").textContent = year;
     document.querySelector("#month").textContent = month;
-    randomDayBlock(year, month);
+    renderDayBlock(year, month);
 }
 
-function randomDayBlock(currentYear, currentMonth) {
+function renderDayBlock(currentYear, currentMonth) {
     tbody.innerHTML = '';
     let curMonthDays = new Date(currentYear, currentMonth, 0).getDate();
     let curMonthFirstDay = new Date(currentYear, currentMonth - 1, 1).getDay();
@@ -116,7 +116,7 @@ function addTodo(value) {
         });
     }
     else {
-        if (typeof value == "string") {
+        if (typeof value == "string") {//判斷是否為刪除或修改事件
             localStorage.removeItem(value);
         }
         saveToLocalStorage(titleVal, dateVal, timeVal, contentsVal, colorVal, positionVal);
@@ -164,7 +164,6 @@ function showTodoData(year, month) {
                 document.querySelector(".modal-title").textContent = "修改行程";
                 document.querySelector("#modifyTime").textContent = `更新時間：${data.updateTime}`;
 
-                //把Data的key設定在按鈕上
                 deleteBtn.setAttribute("value", datakey);
                 modifyBtn.setAttribute("value", datakey);
 
@@ -186,7 +185,7 @@ function deleteOrModifyTodo() {
         $('#todoModal').modal('hide');
         showCalendar(currentYear, currentMonth);
     }
-    if (this.id == "modifyBtn") {
+    else {
         addTodo(this.value);
     }
 }
