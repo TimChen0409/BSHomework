@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <button id="get">GET</button>
+    <button id="post">POST</button>
+    <button id="put">PUT</button>
+    <button id="delete">DELETE</button>
+    <div id="result"></div>
+
+    <script>
+        let result = document.getElementById("result");
+        document.getElementById("post").addEventListener("click", fetchCallFull, false);
+
+        let todoitem = { "Name": "溜狗", "IsComplete": true };
+
+        const searchParams = Object.keys(todoitem).map((key) => {
+            return encodeURIComponent(key) + '=' + encodeURIComponent(todoitem[key]);
+        }).join('&');
+
+        console.log(searchParams);
+
+        let formData = new FormData();
+        formData.append("Name","溜狗");
+        formData.append("IsComplete",true);
+
+        let webapiUrl = "https://localhost:5001/api/TodoItems";
+        const request = new Request(webapiUrl, {
+            body: searchParams, // must match 'Content-Type' header
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, same-origin, *omit
+                headers: {
+                    'user-agent': 'Mozilla/4.0 MDN Example',
+                    'content-type': 'application/x-www-form-urlencoded;charset=UTF-8'
+                },
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, cors, *same-origin
+                //redirect: 'follow', // manual, *follow, error
+                //referrer: 'no-referrer', // *client, no-referrer
+            }
+        );
+
+
+        function fetchCall() {
+            fetch(request.clone())
+                .then(response => response.json())
+                .then(responseJson => {
+                    console.log(responseJson);
+                    result.innerText = JSON.stringify(responseJson);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        }
+
+        function fetchCallFull() {
+            fetch(request.clone())
+                .then(response => {
+                    if (response.status === 200 || response.status === 201) {
+                        return response.json();
+                    }
+
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                })
+                .then(responseJson => {
+                    console.log(responseJson);
+                    result.innerText = JSON.stringify(responseJson);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        }
+    </script>
+</body>
+</html>
